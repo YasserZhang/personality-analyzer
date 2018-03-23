@@ -27,8 +27,8 @@ async function main(screen_name, limit = 10) {
 
                         }).catch(err => console.log(err));
                         */
-    //const data = await scraper.getStatuses(config, options);
-    //let handleUser = data[0].user;
+    const data = await scraper.getStatuses(config, options);
+    let handleUser = data[0].user;
     //console.log(handleUser);
     //console.log("length of the data", data.length);
     //const id = 12334;
@@ -43,7 +43,7 @@ async function main(screen_name, limit = 10) {
         await tweets.addTweet(data[i]);
         console.log(data[i].id_str);
     }
-    //await db.close();
+    await db.close();
 }
 
 
