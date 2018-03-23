@@ -9,7 +9,7 @@ let exportedMethods = {
     },
     getTweetsById(id) {
         return tweets().then(tweetCollection => {
-            return tweetCollection.find({"_id": id})
+            return tweetCollection.findOne({"_id": id})
                     .then(tw => {
                         if (!tw) throw "Tweet not found";
                         return tw;
@@ -35,11 +35,12 @@ let exportedMethods = {
         });
     },
     addTweet(tweet){
+        /*
         if (this.checkTweetById(tweet.id_str)){
             console.log("old tweet", tweet.id_str);
             return;
         }
-        
+        */
         return tweets().then(tweetCollection => {
         let newTweet = {
             _id: tweet.id_str,

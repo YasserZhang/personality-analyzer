@@ -22,8 +22,8 @@ const toContentItem = (tweet) => {
         language: tweet.lang,
         contenttype: 'text/plain',
         content: tweet.text.replace('[^(\\x20-\\x7F)]*',''),
-        //created: Date.parse(tweet.created_at),
-        created: tweet.created_at,
+        created: Date.parse(tweet.created_at),
+        //created_at: tweet.created_at,
         reply: tweet.in_reply_to_screen_name != null,
         parentid: parentId(tweet)
     };
