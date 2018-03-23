@@ -1,0 +1,51 @@
+<article>
+    <h3>{{userHandle}}</h3>
+    <h5>Insights created at {{created}}</h5>
+    <p>Details of Insights</p>
+    <p>Word Count: {{word_count}}</p>
+    <p>processed_language: {{processed_language}}</p>
+    <h5>personality (in percentile)</h5>
+    <ul class="category">
+    {{#each personality}}
+    <ol>
+        <em>{{name}}</em>
+        {{#each children}}
+            <li>{{name}}: {{percentile}}</li>
+        {{/each}}
+    </ol>
+    {{/each}}
+    </ul>
+
+    <h5>needs (in percentile)</h5>
+    <ul class="category">
+    {{#each needs}}
+        <li>{{name}}: {{percentile}}</li>
+     {{/each}}
+    </ul>
+
+    <h5>values (in percentile)</h5>
+    <ul class="category">
+    {{#each values}}
+        <li>{{name}}: {{percentile}}</li>
+     {{/each}}
+    </ul>
+
+    <h5>behaviors (in percentage)</h5>
+    <ul class="category">
+    {{#each behavior}}
+        <li>{{name}}: {{percentage}}</li>
+     {{/each}}
+    </ul>
+
+    <h5>consumption preferences (in score)</h5>
+    <ul class="category">
+    {{#each consumption_preferences}}
+        <ol>
+            <em>{{name}}</em>
+            {{#each consumption_preferences}}
+                <li>{{name}}: {{score}}</li>
+            {{/each}}
+        </ol>
+    {{/each}}
+    </ul>
+</article>

@@ -1,0 +1,20 @@
+<article class="new-tweet">
+  <h1>Collect Tweets</h1>
+  <form action="/tweets" method="POST" class="new-tweet-form">
+    <label>
+      Type in a Target Twitter Handle you want to monitor.</br>
+      <input type="text" name="userHandle" placeholder="DrDavidDuke" value="{{userHandle}}" class="full-width-input"/>
+    </label>
+    <label>
+        <input type="number" name="limit" placeholder=10 value="{{10}}"/>
+    </label>
+    <button type="submit">Let's download!</button>
+  </form>
+</article>
+<p>{{tweet_ids.length}} tweets are downloaded.</p>
+<h4>Downloaded Tweet IDs</h4>
+<ul class="tweet_ids">
+  {{#each tweet_ids}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
