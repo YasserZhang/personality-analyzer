@@ -70,5 +70,5 @@ async function main(screen_name, limit = 10) {
 */
 let hs = ["DavidWorlock", "DrDavidDuke"];
 for (let h of hs) {
-    main(h, 1000);
+    main(h, 10);
 }
