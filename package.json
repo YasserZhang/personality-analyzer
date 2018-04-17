@@ -20,7 +20,18 @@
     "node-uuid": "^1.4.7",
     "watson-developer-cloud": "^2.39.0",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.0.5",
+    "bcryptjs": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "passport-twitter": "*"
   },
   "devDependencies": {
     "nodemon": "^1.17.2"
