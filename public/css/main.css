@@ -12,11 +12,6 @@ body {
     font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-main {
-    max-width: 75%;
-    margin: 0 auto;
-}
-
 header {
     border-bottom: 1px solid #afafaf;
     max-width: inherit;
@@ -31,37 +26,43 @@ header {
 }
 
 .header-right {
-    border: solid blue;
+    padding: 5px;
+    border: solid black;
     width: 40%;
     float: left;
 }
 
 .login-section>h2 {
-    border: dashed black;
-    width: 40%;
-    display: inline-flex;
+    width: inherit;
+    font-size: larger;
 }
 
 .to-clear {
     clear: both;
 }
 
+.site-name>h1 {
+    font-weight: bolder;
+}
+
+.login-section>form {
+    width: inherit;
+}
+
+form>fieldset {
+    display: inline-flex;
+}
+
+.user-name,
+.user-pass {
+    width: 40%;
+}
+
 footer {
     text-align: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #222;
-    margin-bottom: 5px;
-}
-
 h1 {
-    font-size: 2rem;
     text-align: center;
 }
 
