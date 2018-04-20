@@ -29,7 +29,7 @@ app.use("/public", static);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.engine("handlebars", exphbs({ defaultLayout: "layout" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
