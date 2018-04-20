@@ -28,7 +28,7 @@ let exportedMethods = {
         if (!handle) throw "Handle not found";
         return handle;
     },
-    async addHandle(handleUser) {
+    async addHandle(handleUser, maxId) {
         if (!handleUser) throw "no user information is provided";
         const handleCollection = await handles();
         let newHandle = {
@@ -37,7 +37,8 @@ let exportedMethods = {
             screen_name: handleUser.screen_name,
             location: handleUser.location,
             url: handleUser.url,
-            description: handleUser.description
+            description: handleUser.description,
+            maxId: maxId || undefined
         };
         const newInsertInformation = await handleCollection.insertOne(newHandle);
         const newId = newInsertInformation.insertedId;

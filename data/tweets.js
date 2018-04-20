@@ -1,5 +1,5 @@
-const mongoCollections = require("../config/mongoCollections");
-const tweets = mongoCollections.tweets;
+const mongoCollections = require("../config/mongoCollections"); //import db
+const tweets = mongoCollections.tweets; //import collection
 
 let exportedMethods = {
     getAllTweets(){
@@ -36,7 +36,7 @@ let exportedMethods = {
     },
     addTweet(tweet){
         /*
-        if (this.checkTweetById(tweet.id_str)){
+        if (checkTweetById(tweet.id_str)){
             console.log("old tweet", tweet.id_str);
             return;
         }
