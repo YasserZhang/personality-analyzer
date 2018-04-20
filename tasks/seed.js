@@ -12,13 +12,13 @@ getTweets = async function(config, options) {
 }
 */
 
-async function main(screen_name, limit = 10) {
+async function main(screen_name, limit) {
     const db = await dbConnection();
     await db.dropDatabase();
     const twitterClient = new Twit(config);
     //console.log(typeof handles);
     let options = { screen_name: screen_name,
-        count: limit };
+        count: limit || undefined};
     /*
     const data = await twitterClient.get('statuses/user_timeline', options)
                         .then(result => {
@@ -27,7 +27,9 @@ async function main(screen_name, limit = 10) {
 
                         }).catch(err => console.log(err));
                         */
-    const data = await scraper.getStatuses(config, options);
+    const tweetData = await scraper.getStatuses(config, options);
+    let data = tweetData.tweetData;
+    let maxId = tweetData.maxId;
     let handleUser = data[0].user;
     //console.log(handleUser);
     //console.log("length of the data", data.length);
@@ -35,15 +37,17 @@ async function main(screen_name, limit = 10) {
     //handles.addPost("Hello, class!", "Today we are creating a blog!", [], id).catch(err => console.log(typeof handles));
     console.log(await handles.checkHandleByScreenName(handleUser.screen_name));
     if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
-        let newHandle = await handles.addHandle(handleUser)
+        let newHandle = await handles.addHandle(handleUser, maxId);
         //console.log();
-        console.log(newHandle);
+        //console.log(newHandle);
     }
+    //console.log("print tweet ids");
     for (let i = 0; i < data.length; i++) {
         await tweets.addTweet(data[i]);
-        console.log(data[i].id_str);
+        //console.log(data[i].id_str);
+        //console.log(data[i].user.screen_name);
     }
-    await db.close();
+    await db.serverConfig.close();
 }
 
 
@@ -68,7 +72,8 @@ async function main(screen_name, limit = 10) {
     await db.close();
 }
 */
-let hs = ["DavidWorlock", "DrDavidDuke"];
+//"DavidWorlock", 
+let hs = ["DrDavidDuke"];
 for (let h of hs) {
-    main(h, 10);
+    main(h).catch(console.log);
 }
