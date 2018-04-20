@@ -14,12 +14,12 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
+//var mongo = require('mongodb');
+//var mongoose = require('mongoose');
 var TwitterStrategy = require('passport-twitter').Strategy;
 
-mongoose.connect('mongodb://localhost/loginapp');
-var db = mongoose.connection;
+//mongoose.connect('mongodb://localhost/loginapp');
+//var db = mongoose.connection;
 var User = require('./data/user')
 
 //var routes = require('./routes/index');
@@ -37,8 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
     secret: 'secret',
+    key:'sid',
     saveUninitialized: true,
-    resave: true
+    resave: true,
+    cookie:{secure:true}
 }));
 
 // Passport init
@@ -82,32 +84,29 @@ passport.use(new TwitterStrategy({
         userProfileURL: 'https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true',
         includeEmail: true
     },
-    function(accessToken, refreshToken, profile, done) {
-        console.log(profile)
-        User.findOne({
-            'username': profile.displayName
-        }, function(err, user) {
-            if (err) {
-                return done(err);
-            }
+    async function(accessToken, refreshToken, profile, done) {
+        console.log("Profile......."+profile)
+        const twitterUser = await  User.getUserByUsername(profile.username)
             //No user was found... so create a new user with values from Facebook (all the profile. stuff)
-            if (!user) {
-                user = new User({
+            console.log("twitteruser....."+twitterUser)
+            if (!twitterUser) {
+                console.log('New user from twitter')
+                user = {
                     name: profile.displayName,
                     email: profile.emails[0].value,
-                    username: profile.username,
-                    provider: 'twitter',
-                    //now in the future searching on User.findOne({'twitter.id': profile.id } will match because of this next line
-                    twitter: profile._json
-                });
-                user.save(function(err) {
+                    username: profile.username
+                };
+                let newUser = await User.createUserTwitter(user);
+                console.log('newUser....'+newUser)
+                return done(null,newUser);
+                /*user.save(function(err) {
                     if (err) console.log(err);
                     return done(err, user);
-                });
+                });*/
             } else {
-                return done(err, user);
+                console.log('User exists')
+                return done(null,twitterUser);
             }
-        });
     }
 ));
 
@@ -115,7 +114,7 @@ app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/twitter/callback',
     passport.authenticate('twitter', { failureRedirect: '/user/login' }),
     function(req, res) {
-        console.log(req.user.username);
+    //  console.log(req.user.username);
         res.redirect("/");
     });
 

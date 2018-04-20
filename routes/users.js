@@ -29,7 +29,7 @@ router.get('/login', function(req, res) {
 });
 
 // Register User
-router.post('/register', function(req, res) {
+router.post('/register', async function(req, res) {
     var name = req.body.name;
     var email = req.body.email;
     var username = req.body.username;
@@ -51,7 +51,7 @@ router.post('/register', function(req, res) {
             errors: errors
         });
     } else {
-        var newUser = new User({
+        /*var newUser = new User({
             name: name,
             email: email,
             username: username,
@@ -61,7 +61,14 @@ router.post('/register', function(req, res) {
         User.createUser(newUser, function(err, user) {
             if (err) throw err;
             console.log(user);
-        });
+        });*/
+        let user = {
+            name: name,
+            email: email,
+            username: username,
+            password: password
+        }
+        let newUser = await User.createUser(user)
 
         req.flash('success_msg', 'You are registered and can now login');
 
