@@ -24,7 +24,6 @@ async function main(screen_name, limit) {
                         .then(result => {
                             //console.log(result.data);
                             return result.data;
-
                         }).catch(err => console.log(err));
                         */
     const tweetData = await scraper.getStatuses(config, options);
