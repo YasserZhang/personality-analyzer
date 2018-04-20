@@ -15,4 +15,4 @@ module.exports = {
     tweets: getCollectionFn("tweets"),
     handles: getCollectionFn("handles"),
     insights: getCollectionFn("personalityInsights")
-}
+};

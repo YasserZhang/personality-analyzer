@@ -14,7 +14,11 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "mongodb": "^2.1.18",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.5",
+    "mongodb": "^3.0.7",
+    "node-uuid": "^1.4.7",
+    "save": "^2.3.2",
     "twit": "^1.1.18",
     "twit-promise": "^2.1.0",
     "node-uuid": "^1.4.7",
@@ -31,7 +35,8 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
-    "passport-twitter": "*"
+    "passport-twitter": "*",
+    "watson-developer-cloud": "^2.39.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.2"
