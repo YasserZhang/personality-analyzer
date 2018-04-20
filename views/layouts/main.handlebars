@@ -22,10 +22,33 @@
       </div>
     </div>
     <div class="header-right">
-      <div class="login-section">
-        <h2>Login</h2>
-        <h2>Signup</h2>
-      </div>
+      {{#if user}}
+        <nav>
+          <ul>
+            <li role="presentation"><a href="#">Dashboard</a></li>
+            <li role="presentation"><a href="#">Run a Handle</a></li>
+            <li role="presentation"><a href="/logout">Logout</a></li>
+          </ul>
+        </nav>
+      {{else}}
+        <div class="login-section">
+          <h2>Login</h2>
+          <form class="form-horizontal">
+            <fieldset>
+              <label for="user-name">Username:</label>
+              <input type="text" id="user-name" placeholder="Enter Username">
+            </fieldset>
+            <fieldset>
+              <label for="user-pass">Password:</label>
+              <input type="password" id="user-pass" placeholder="Enter Password">
+            </fieldset>
+            <br>
+            <fieldset>
+              <button type="submit">Submit</button>
+            </fieldset>
+          </form>
+        </div>
+      {{/if}}
     </div> 
     <p class="to-class"></p>
   </header>
