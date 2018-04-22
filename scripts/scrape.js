@@ -34,11 +34,10 @@ const exportedMethods = {
         } else {
             limit = 3200;
         }
-        
         let tweetData = [];
         let handle = undefined;
         let maxId = undefined;
-        if (await handles.checkHandleByScreenName(options.screen_name)) {
+        if (await handles.checkHandleByScreenName(options.screen_name) === false) {
             handle = await handles.getHandleByHandle(options.screen_name);
             options.max_id = handle.max_id;
         }

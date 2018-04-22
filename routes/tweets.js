@@ -6,6 +6,7 @@ const scraper = require("../scripts/scrape");
 const personalityInsights = require("../scripts/personalityInsights");
 const getInsight = personalityInsights.getInsight;
 const tweetData = data.tweets;
+const handles = data.handles;
 const insightData = data.insights;
 const dbConnection = require("../config/mongoConnection");
 const Twit = require('twit-promise');
@@ -27,19 +28,26 @@ router.get("/screen_name/:screen_name", async(req, res) => {
     res.json(tweetList);
 });
 router.get("/id/:id", async(req, res) => {
-    console.log(req.params.id);
+    //console.log(req.params.id);
     const tweetList = await tweetData.getTweetsById(req.params.id);
     res.json(tweetList);
 });
 router.post("/", async (req, res) => {
-    console.log(req.body);
-    //const db = await dbConnection();
-    //await db.dropDatabase();
-    //await db.close();
+    //console.log(req.body);
     const twitterClient = new Twit(config);
     let options = {screen_name: req.body.userHandle,
                 count: req.body.limit};
-    const data = await scraper.getStatuses(config, options);
+    const tweets_maxId = await scraper.getStatuses(config, options);
+    let data = tweets_maxId.tweetData;
+    let maxId = tweets_maxId.maxId;
+    let handleUser = data[0].user;
+    if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
+        let newHandle = await handles.addHandle(handleUser, maxId);
+    } else {
+        let updatedHandle = await handles.updateHandMaxId(handleUser.screen_name, maxId);
+        console.log("updating maxId for user", handleUser.screen_name);
+        console.log(updatedHandle);
+    }
     let ids = []
     for (let i = 0; i < data.length; i++) {
         await tweetData.addTweet(data[i]);
