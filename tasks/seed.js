@@ -34,7 +34,7 @@ async function main(screen_name, limit) {
     //console.log("length of the data", data.length);
     //const id = 12334;
     //handles.addPost("Hello, class!", "Today we are creating a blog!", [], id).catch(err => console.log(typeof handles));
-    console.log(await handles.checkHandleByScreenName(handleUser.screen_name));
+    //console.log(await handles.checkHandleByScreenName(handleUser.screen_name));
     if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
         let newHandle = await handles.addHandle(handleUser, maxId);
         //console.log();
@@ -71,8 +71,8 @@ async function main(screen_name, limit = 10) {
     await db.close();
 }
 */
-//"DavidWorlock", 
-let hs = ["DrDavidDuke"];
+//"DrDavidDuke", "DavidWorlock"
+let hs = ["yaseru2003"];
 for (let h of hs) {
-    main(h).catch(console.log);
+    main(h, 10).catch(console.log);
 }
