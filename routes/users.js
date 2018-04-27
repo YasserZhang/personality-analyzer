@@ -105,11 +105,11 @@ passport.use(new LocalStrategy(
 //     });
 // });
 
-// router.post('/login',
-//     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
-//     function(req, res) {
-//         res.redirect('/');
-//     });
+ router.post('/login',
+    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
+  function(req, res) {
+        res.redirect('/');
+    });
 
 router.get('/logout', function(req, res) {
     //req.logout();
