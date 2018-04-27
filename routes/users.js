@@ -6,17 +6,17 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../data/user')
 
 // Get Homepage
-router.get('/', ensureAuthenticated, function(req, res) {
+router.get('/', (req, res) => {
     res.render('index');
 });
 
-function ensureAuthenticated(req, res, next) {
+/*function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     } else {
-        res.redirect('login');
+        res.redirect('/login');
     }
-}
+}*/
 
 // Register
 router.get('/register', function(req, res) {
@@ -29,7 +29,7 @@ router.get('/login', function(req, res) {
 });
 
 // Register User
-router.post('/register', function(req, res) {
+router.post('/register', async function(req, res) {
     var name = req.body.name;
     var email = req.body.email;
     var username = req.body.username;
@@ -51,7 +51,7 @@ router.post('/register', function(req, res) {
             errors: errors
         });
     } else {
-        var newUser = new User({
+        /*var newUser = new User({
             name: name,
             email: email,
             username: username,
@@ -61,7 +61,14 @@ router.post('/register', function(req, res) {
         User.createUser(newUser, function(err, user) {
             if (err) throw err;
             console.log(user);
-        });
+        });*/
+        let user = {
+            name: name,
+            email: email,
+            username: username,
+            password: password
+        }
+        let newUser = await User.createUser(user)
 
         req.flash('success_msg', 'You are registered and can now login');
 
@@ -88,28 +95,32 @@ passport.use(new LocalStrategy(
         });
     }));
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id);
+// });
 
-passport.deserializeUser(function(id, done) {
-    User.getUserById(id, function(err, user) {
-        done(err, user);
-    });
-});
+// passport.deserializeUser(function(id, done) {
+//     User.getUserById(id, function(err, user) {
+//         done(err, user);
+//     });
+// });
 
-router.post('/login',
-    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
-    function(req, res) {
-        res.redirect('/');
-    });
+// router.post('/login',
+//     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
+//     function(req, res) {
+//         res.redirect('/');
+//     });
 
 router.get('/logout', function(req, res) {
-    req.logout();
+    //req.logout();
 
     req.flash('success_msg', 'You are logged out');
 
     res.redirect('/login');
 });
+
+// router.get('/user/:id', ensureAuthenticated, (req, res) => {
+//     res.send('Profile for: ' + req.param.id)
+// });
 
 module.exports = router;
