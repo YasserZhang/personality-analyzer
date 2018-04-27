@@ -6,7 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../data/user')
 
 // Get Homepage
-router.get('/', ensureAuthenticated, function(req, res) {
+router.get('/', (req, res) => {
     res.render('index');
 });
 
@@ -14,7 +14,7 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     } else {
-        res.redirect('login');
+        res.redirect('/login');
     }
 }
 
@@ -117,6 +117,10 @@ router.get('/logout', function(req, res) {
     req.flash('success_msg', 'You are logged out');
 
     res.redirect('/login');
+});
+
+router.get('/user/:id', ensureAuthenticated, (req, res) => {
+    res.send('Profile for: ' + req.param.id)
 });
 
 module.exports = router;

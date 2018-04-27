@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+
   <meta charset="utf-8">
   <meta lang="en">
 
-	<title>Personality Analyzer</title>
+  <title>Personality Analyzer</title>
 
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -18,7 +18,7 @@
   <header class="row">
     <div class="header-left">
       <div class="site-name">
-        <h1>Personality Analyzer</h1>
+        <h1><a href="/">Personality Analyzer</a></h1>
       </div>
     </div>
     <div class="header-right">
@@ -26,10 +26,10 @@
         <h2>Login</h2>
         <h2>Signup</h2>
       </div>
-    </div> 
+    </div>
     <p class="to-class"></p>
   </header>
-  
+
 
   <!-- CONTAINER -->
 	<div class="container">
@@ -46,7 +46,6 @@
             {{/if}}
           </ul>
         </nav>
-        <h3 class="text-muted">Login</h3>
       </div>
 
 
@@ -63,11 +62,11 @@
           {{#if error}}
             <div class="alert alert-danger">{{error}}</div>
           {{/if}}
-          
+
           {{{body}}}
         </div>
 
-        
+
       </div>
 
     </div> <!-- /container -->
