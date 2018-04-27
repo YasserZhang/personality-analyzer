@@ -10,13 +10,13 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-function ensureAuthenticated(req, res, next) {
+/*function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     } else {
         res.redirect('/login');
     }
-}
+}*/
 
 // Register
 router.get('/register', function(req, res) {
@@ -95,32 +95,32 @@ passport.use(new LocalStrategy(
         });
     }));
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id);
+// });
 
-passport.deserializeUser(function(id, done) {
-    User.getUserById(id, function(err, user) {
-        done(err, user);
-    });
-});
+// passport.deserializeUser(function(id, done) {
+//     User.getUserById(id, function(err, user) {
+//         done(err, user);
+//     });
+// });
 
-router.post('/login',
-    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
-    function(req, res) {
-        res.redirect('/');
-    });
+// router.post('/login',
+//     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
+//     function(req, res) {
+//         res.redirect('/');
+//     });
 
 router.get('/logout', function(req, res) {
-    req.logout();
+    //req.logout();
 
     req.flash('success_msg', 'You are logged out');
 
     res.redirect('/login');
 });
 
-router.get('/user/:id', ensureAuthenticated, (req, res) => {
-    res.send('Profile for: ' + req.param.id)
-});
+// router.get('/user/:id', ensureAuthenticated, (req, res) => {
+//     res.send('Profile for: ' + req.param.id)
+// });
 
 module.exports = router;

@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(morgan('[:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer"'));
 app.use(cookieParser());
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "layout" }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
@@ -79,10 +79,11 @@ app.use(function(req, res, next) {
 passport.use(new TwitterStrategy({
         consumerKey: '4B3SJBMC6hyBnPa8FpJPtDwqH',
         consumerSecret: 'fTNgrUdTNWSr9Hc3D5Z4pEpvcgfKba19p5lu9tof8xiOSbE30N',
-        callbackURL: "http://127.0.0.1:3000/auth/twitter/callback",
-        includeEmail: true
+        callbackURL: "http://127.0.0.1:3000/auth/twitter/callback"
+        //includeEmail: true,
+        //passReqToCallback:true
     },
-    async function(token, tokenSecret, profile, cb) {
+    function(token, tokenSecret, profile, cb) {
         console.log("Profile.......")
         console.log(token);
         console.log(tokenSecret);
