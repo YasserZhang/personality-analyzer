@@ -26,7 +26,6 @@ const User = require('./data/user')
 
 app.use("/public", static);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 app.use(morgan('[:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer"'));
 app.use(cookieParser());
 app.engine("handlebars", exphbs({ defaultLayout: "layout" }));
