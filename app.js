@@ -26,7 +26,7 @@ const User = require('./data/user')
 
 app.use("/public", static);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(morgan('[:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer"'));
 app.use(cookieParser());
 app.engine("handlebars", exphbs({ defaultLayout: "layout" }));
@@ -79,15 +79,11 @@ app.use(function(req, res, next) {
 passport.use(new TwitterStrategy({
         consumerKey: '4B3SJBMC6hyBnPa8FpJPtDwqH',
         consumerSecret: 'fTNgrUdTNWSr9Hc3D5Z4pEpvcgfKba19p5lu9tof8xiOSbE30N',
-        callbackURL: "http://127.0.0.1:3000/auth/twitter/callback"
-        //includeEmail: true,
+        callbackURL: "http://127.0.0.1:3000/auth/twitter/callback",
+        includeEmail: true,
         //passReqToCallback:true
     },
     function(token, tokenSecret, profile, cb) {
-        console.log("Profile.......")
-        console.log(token);
-        console.log(tokenSecret);
-        console.log(profile)
         // const twitterUser = await User.getUserByUsername(profile.username)
         //     //No user was found... so create a new user with values from Twitter (all the profile. stuff)
         //     console.log("twitteruser.....")
@@ -116,7 +112,7 @@ app.get('/auth/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    console.log('>>>> LOGGED IN');
+   // console.log('>>>> LOGGED IN');
     res.redirect('/');
   });
 
