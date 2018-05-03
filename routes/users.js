@@ -1,126 +1,66 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+const express = require('express')
+const router = express.Router()
+const passport = require('passport')
+const User = require('../data/user')
 
-var User = require('../data/user')
+router.get('/register', (req, res) => {
+    res.render('register')
+})
 
-// Get Homepage
-router.get('/', (req, res) => {
-    res.render('index');
-});
+router.get('/login', (req, res) => {
+    res.render('login')
+})
 
-/*function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    } else {
-        res.redirect('/login');
+router.post('/register', async (req, res) => {
+    // check user not exist by email
+    const email = req.body.email
+    const password = req.body.password
+    const password2 = req.body.password2
+
+    req.checkBody('email', 'Email is required').notEmpty()
+    req.checkBody('password', 'Password is required').notEmpty()
+    req.checkBody('password2', 'Passwords do not match').equals(req.body.password)
+
+    if (email) {
+        req.checkBody('email', 'Email is not valid').isEmail()
     }
-}*/
 
-// Register
-router.get('/register', function(req, res) {
-    res.render('register');
-});
-
-// Login
-router.get('/login', function(req, res) {
-    res.render('login');
-});
-
-// Register User
-router.post('/register', async function(req, res) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var username = req.body.username;
-    var password = req.body.password;
-    var password2 = req.body.password2;
-
-    // Validation
-    req.checkBody('name', 'Name is required').notEmpty();
-    req.checkBody('email', 'Email is required').notEmpty();
-    req.checkBody('email', 'Email is not valid').isEmail();
-    req.checkBody('username', 'Username is required').notEmpty();
-    req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-
-    var errors = req.validationErrors();
+    const errors = req.validationErrors()
 
     if (errors) {
-        res.render('register', {
-            errors: errors
-        });
+        res.render('register', { errors: errors })
     } else {
-        /*var newUser = new User({
-            name: name,
-            email: email,
-            username: username,
-            password: password
-        });
 
-        User.createUser(newUser, function(err, user) {
-            if (err) throw err;
-            console.log(user);
-        });*/
         let user = {
-            name: name,
             email: email,
-            username: username,
             password: password
         }
-        let newUser = await User.createUser(user)
 
-        req.flash('success_msg', 'You are registered and can now login');
+        let newUser = await User.createUserLocal(user)
+        req.flash('success_msg', 'You are registered and can now login')
 
-        res.redirect('/login');
+        // passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }, (req, res) => { res.redirect('/')})
+
+        res.redirect('/login')
     }
-});
-
-passport.use(new LocalStrategy(
-    function(username, password, done) {
-        User.getUserByUsername(username, function(err, user) {
-            if (err) throw err;
-            if (!user) {
-                return done(null, false, { message: 'User not found' });
-            }
-
-            User.comparePassword(password, user.password, function(err, isMatch) {
-                if (err) throw err;
-                if (isMatch) {
-                    return done(null, user);
-                } else {
-                    return done(null, false, { message: 'Invalid password' });
-                }
-            });
-        });
-    }));
-
-// passport.serializeUser(function(user, done) {
-//     done(null, user.id);
-// });
-
-// passport.deserializeUser(function(id, done) {
-//     User.getUserById(id, function(err, user) {
-//         done(err, user);
-//     });
-// });
+})
 
  router.post('/login',
     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
   function(req, res) {
-        res.redirect('/');
-    });
+        res.redirect('/')
+    })
 
-router.get('/logout', function(req, res) {
-    //req.logout();
+router.get('/logout', (req, res) => {
+    //req.logout()
 
-    req.flash('success_msg', 'You are logged out');
+    req.flash('success_msg', 'You are logged out')
 
-    res.redirect('/login');
-});
+    res.redirect('/login')
+})
 
 // router.get('/user/:id', ensureAuthenticated, (req, res) => {
 //     res.send('Profile for: ' + req.param.id)
-// });
+// })
 
-module.exports = router;
+module.exports = router

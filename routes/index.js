@@ -4,6 +4,7 @@ const insightRoutes = require("./insights");
 const userRoutes = require('./users')
 
 const constructorMethod = app => {
+    app.get('/', (req, res) => { res.render('index')})
     app.use("/handles", handleRoutes);
     app.use("/tweets", tweetRoutes);
     app.use("/insights", insightRoutes);
