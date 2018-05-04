@@ -34,17 +34,17 @@ const twitterChecking = async (token, tokenSecret, profile, cb) => {
         console.log(existUser);
 
         if (existUser.has_twitter) {
-            console.log('Twitter Exist, and has_twitter');
+            console.log('>>>> Twitter Exist, and has_twitter');
             return cb(null, existUser)
         } else if (!existUser.has_twitter) {
-            console.log('Twitter Exist, and NO has_twitter');
+            console.log('>>>> Twitter Exist, and NO has_twitter');
             let updatedUser = await User.addTwitterToUser(existUser, user)
             return cb(null, updatedUser)
         }
     } catch (e) {
         console.log(e);
         if (e === 'NOT_FOUND') {
-            console.log('Twitter NOT Exist');
+            console.log('>>>> Twitter NOT Exist');
             let newUser = await User.createUserTwitter(user)
             return cb(null, newUser)
         }

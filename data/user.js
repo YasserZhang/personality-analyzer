@@ -69,11 +69,6 @@ let exportMethods = {
     async getUserByEmail(email){
         const usersCollection = await users()
         const user = await usersCollection.findOne({email})
-
-        if (!user){
-            throw 'NOT_FOUND'
-        }
-
         return user
     },
 
@@ -94,11 +89,15 @@ let exportMethods = {
     },
 
     async comparePassword(candidatePassword, hash){
+        let compare = false
+
         try {
-            let compare = await bcrypt.compare(candidatePassword,hash)
+            compare = await bcrypt.compare(candidatePassword,hash)
         } catch(e){
+            console.log(e);
             throw 'Password not matched'
         }
+        console.log(compare);
         return compare
     }
 }

@@ -11,8 +11,7 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
-router.post('/register', async (req, res) => {
-    // check user not exist by email
+router.post('/register', async (req, res, next) => {
     const email = req.body.email
     const password = req.body.password
     const password2 = req.body.password2
@@ -30,33 +29,20 @@ router.post('/register', async (req, res) => {
     if (errors) {
         res.render('register', { errors: errors })
     } else {
-
-        let user = {
-            email: email,
-            password: password
-        }
-
-        let newUser = await User.createUserLocal(user)
-        req.flash('success_msg', 'You are registered and can now login')
-
-        // passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }, (req, res) => { res.redirect('/')})
-
-        res.redirect('/login')
+        next()
     }
+}, passport.authenticate('local-signup', { successRedirect: '/', failureRedirect: '/register', failureFlash: true }), (req, res) => {
+    res.redirect('/')
 })
 
- router.post('/login',
-    passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
-  function(req, res) {
+router.post('/login', passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }), (req, res) => {
         res.redirect('/')
-    })
+})
 
 router.get('/logout', (req, res) => {
-    //req.logout()
-
+    req.logout()
     req.flash('success_msg', 'You are logged out')
-
-    res.redirect('/login')
+    res.redirect('/')
 })
 
 // router.get('/user/:id', ensureAuthenticated, (req, res) => {
