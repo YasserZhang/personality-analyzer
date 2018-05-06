@@ -1,0 +1,30 @@
+<article class="new-tweet">
+  <h1>Collect Tweets</h1>
+  <form action="/tweets" method="POST" class="new-tweet-form">
+    <label>
+      Type in a Target Twitter Handle you want to monitor.</br>
+      <input type="text" id="userHandle" name="userHandle" placeholder="DrDavidDuke" value="{{userHandle}}" class="full-width-input"/>
+    </label>
+    <label>
+        <input type="number" id="limit" name="limit" placeholder=10 value="{{10}}"/>
+    </label>
+    <button type="submit" id="get-tweets">Let's download!</button>
+  </form>
+</article>
+<p>{{tweet_ids.length}} tweets are downloaded.</p>
+<h4>Downloaded Tweet IDs</h4>
+<ul class="tweet_ids">
+  {{#each tweet_ids}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+<article class="new-insight">
+  <h1>Get Personality Insight</h1>
+  <form action="/insights" method="POST" class="new-insight-form">
+    <label>
+      Type in a twitter handle</br>
+      <input type="text" name="userHandle" placeholder="DrDavidDuke" value="{{userHandle}}" class="full-width-input"/>
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+</article>
