@@ -71,6 +71,11 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         behavior: newProfile.profile.behavior,
         consumption_preferences: newProfile.profile.consumption_preferences
     }
+        res.render("result", structure);
+  } else {
+    console.log("tweet length", data.length);
+    res.json({"error": "no tweet data is found."});
+  }
 });
 
 
