@@ -12,15 +12,15 @@ let Twitter = {}
 
 
 Twitter.init = (app, passport) => {
-    passport.use(new TwitterStrategy(twitterConfig, twitterChecking))
-    app.get('/auth/twitter', passport.authenticate('twitter'))
-    app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) => {
+    passport.use('twitter-login', new TwitterStrategy(twitterConfig, twitterLogin))
+    app.get('/auth/twitter', passport.authenticate('twitter-login'))
+    app.get('/auth/twitter/callback', passport.authenticate('twitter-login', { failureRedirect: '/login' }), (req, res) => {
         // Successful authentication, redirect home.
         res.redirect('/')
     })
 }
 
-const twitterChecking = async (token, tokenSecret, profile, cb) => {
+const twitterLogin = async (token, tokenSecret, profile, cb) => {
 
     let user = {
         email: profile.emails[0].value,
@@ -29,26 +29,30 @@ const twitterChecking = async (token, tokenSecret, profile, cb) => {
         twitter_secret: tokenSecret
     }
 
-    try {
-        let existUser = await User.getUserByEmail(user.email)
-        console.log(existUser);
+    // check if token exist
+    let twitterUser = await User.getUserByTwitter(user.twitter_token)
+    console.log('twitterUser:', twitterUser);
 
-        if (existUser.has_twitter) {
-            console.log('>>>> Twitter Exist, and has_twitter');
-            return cb(null, existUser)
-        } else if (!existUser.has_twitter) {
-            console.log('>>>> Twitter Exist, and NO has_twitter');
-            let updatedUser = await User.addTwitterToUser(existUser, user)
-            return cb(null, updatedUser)
-        }
-    } catch (e) {
-        console.log(e);
-        if (e === 'NOT_FOUND') {
-            console.log('>>>> Twitter NOT Exist');
-            let newUser = await User.createUserTwitter(user)
-            return cb(null, newUser)
-        }
+    if (twitterUser) {
+        console.log('>>>> Twitter Exist');
+        return cb(null, twitterUser)
+    }
 
+    let emailUser = await User.getUserByEmail(user.email)
+    console.log('emailUser:', emailUser);
+
+    if (emailUser && emailUser.has_twitter) {
+        console.log('>>>> Twitter Exist, and has_twitter');
+        return cb(null, emailUser)
+    } else if (emailUser && !emailUser.has_twitter) {
+        console.log('>>>> Twitter Exist, and NO has_twitter');
+        let updatedUser = await User.addTwitterToUser(emailUser, user)
+        return cb(null, updatedUser)
+    } else if (emailUser == null) {
+        console.log('>>>> Twitter NOT Exist');
+        let newUser = await User.createUserTwitter(user)
+        return cb(null, newUser)
+    } else {
         console.log('Error creating or linking Twitter account')
         return cb(null, false, { message: 'Error creating or linking Twitter account' })
     }

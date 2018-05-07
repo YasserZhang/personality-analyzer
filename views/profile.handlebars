@@ -1,0 +1,46 @@
+<div class="page-header">
+    <h1>My Profile <small>(<a href="/profile/edit">Edit</a>)</small></h1>
+</div>
+
+<form>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">ID</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext"  value={{user._id}}>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <span class="form-control-plaintext">{{user.name}}</span>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext"  value={{user.email}}>
+    </div>
+  </div>
+
+  {{#if user.has_twitter}}
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Twitter Token</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext"  value={{user.twitter_token}}>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Twitter Secret</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control-plaintext"  value={{user.twitter_secret}}>
+        </div>
+      </div>
+  {{else}}
+        <a href="/auth/twitter" class="btn btn-primary btn-lg btn-block mt-3"><i class="fa fa-twitter"></i> Link Twitter</a>
+  {{/if}}
+
+
+</form>

@@ -72,6 +72,12 @@ let exportMethods = {
         return user
     },
 
+    async getUserByTwitter(twitter_token){
+        const usersCollection = await users()
+        const user = await usersCollection.findOne({twitter_token})
+        return user
+    },
+
     async addTwitterToUser(u, t) {
         const usersCollection = await users()
         console.log(u, t);

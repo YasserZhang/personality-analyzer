@@ -2,12 +2,13 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const User = require('../data/user')
+const Auth = require('../security/auth')
 
-router.get('/register', (req, res) => {
+router.get('/register', Auth.isPublic, (req, res) => {
     res.render('register')
 })
 
-router.get('/login', (req, res) => {
+router.get('/login', Auth.isPublic, (req, res) => {
     res.render('login')
 })
 
@@ -43,6 +44,18 @@ router.get('/logout', (req, res) => {
     req.logout()
     req.flash('success_msg', 'You are logged out')
     res.redirect('/')
+})
+
+router.get('/profile', Auth.isLoggedIn, async (req, res) => {
+    res.render('profile', {user: req.user})
+})
+
+router.get('/profile/edit', Auth.isLoggedIn, async (req, res) => {
+    res.render('profile-edit', {user: req.user})
+})
+
+router.get('/twitter/remove', Auth.isLoggedIn, async (req, res) => {
+    res.render('profile-edit', {user: req.user})
 })
 
 // router.get('/user/:id', ensureAuthenticated, (req, res) => {
