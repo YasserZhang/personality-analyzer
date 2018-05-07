@@ -12,7 +12,7 @@ const insightData = data.insights;
 const dbConnection = require("../config/mongoConnection");
 const Twit = require('twit-promise');
 router.get("/", (req, res) => {
-  res.render("tweetInsight", {});
+  res.render("dashboard", {});
   //const tweetList = await tweetData.getAllTweets();
   //res.json(tweetList);
   /*
