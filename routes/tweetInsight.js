@@ -48,14 +48,29 @@ router.post("/", async function(req, res) {
         //console.log(updatedHandle);
     }
     console.log("tweet data length: ", data.length);
+    /*
     let ids = []
     for (let i = 0; i < data.length; i++) {
         await tweetData.addTweet(data[i]);
         console.log(data[i].id_str);
         ids.push(data[i].id_str);
     }
+    */
+    let profile = await getInsight(data);
+    let newProfile = await insightData.addProfile(req.body.userHandle, profile);
+    let structure = {
+        userHandle: newProfile.userHandle,
+        created: newProfile.created,
+        word_count: newProfile.profile.word_count,
+        processed_language: newProfile.profile.processed_language,
+        personality: newProfile.profile.personality,
+        needs: newProfile.profile.needs,
+        values: newProfile.profile.values,
+        behavior: newProfile.profile.behavior,
+        consumption_preferences: newProfile.profile.consumption_preferences
+    }
     //await db.close();
-    res.render("tweets",{tweet_ids: ids});
+    res.render("result", structure);
   } else {
     console.log("tweet length", data.length);
     res.json({"error": "no tweet data is found."});
