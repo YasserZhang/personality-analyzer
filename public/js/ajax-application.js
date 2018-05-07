@@ -37,7 +37,5 @@ Questions:
       insights.html(responseMessage);
       insightButton.removeClass("invisible");
     });
-    
-
   });
 })(window.jQuery);

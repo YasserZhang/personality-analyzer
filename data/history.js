@@ -55,6 +55,5 @@ let exportedMethods = {
         return history
     }
     //unflaghistory
-
 }
 module.exports = exportedMethods;
