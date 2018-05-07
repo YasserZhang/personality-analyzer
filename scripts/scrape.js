@@ -9,7 +9,6 @@ then it is saved in the mongodb,
 when we scrape its tweets for a second time, the max_id we previously saved
 in the handle collection is not recognized by the Twit API.
 As a result, the API scrape the handle's tweets from the newest.
-
 */
 
 function decrement(str) {

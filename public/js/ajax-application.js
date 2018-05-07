@@ -17,6 +17,8 @@ Questions:
     //var newLimit = newLimitInput.val();
     var newContent = $("#new-content");
     var insights = $("#insight-results");
+    var insightButton = $("#get-insight");
+    
     var requestConfig = {
       method: "POST",
       url: "/tweetInsight",
@@ -32,9 +34,10 @@ Questions:
       console.log("ajax, ", responseMessage);
       //setTimeout(function() {newContent.html("<p>Scraping started, it may take a while.</p><p>Please wait...</p>")},500);
       //var newElement = $(responseMessage);
-      
       insights.html(responseMessage);
-      
+      insightButton.removeClass("invisible");
     });
+    
+
   });
 })(window.jQuery);
