@@ -1,31 +1,19 @@
-
-<div class="middlePage">
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Please Sign In</h3>
+<div class="page-header">
+    <h1>Login <small>(<a href="/register">Register</a>)</small></h1>
+</div>
+<div class="row">
+    <div class="col-md-4" >
+      <a href="/auth/twitter" class="btn btn-primary btn-lg btn-block mt-3"><i class="fa fa-twitter"></i> Sign in Using Twitter</a>
     </div>
-    <div class="panel-body">
-      <div class="row">
-          <div class="col-md-5" >
-            <a href="/auth/twitter" style='margin-top:50px' class="btn btn-block btn-social btn-twitter">
-                <i class="fa fa-twitter"></i> Sign in Using Twitter
-            </a>
-          </div>
-          <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
-            <form class="form-horizontal" method="post" action="/login">
-              <fieldset>
-                <div>
-                      <input  name="email" type="text" placeholder="Enter Email" class="form-control input-md">
-                </div>
-                <div style="margin-top:15px">
-                      <input  name="password" type="password" placeholder="Enter Password" class="form-control input-md">
-                </div>
-                <button id="singlebutton" name="singlebutton" style="margin-top:15px" class="btn btn-info btn-sm pull-right">Sign In</button>
-              </fieldset>
-            </form>
-          </div>
-      </div>
+    <div class="col-md-8" style="border-left:1px solid #ccc;height:160px">
+        <form class="form-horizontal" method="post" action="/login">
+            <div class="form-group">
+                <div><input  name="email" type="text" placeholder="Email" class="form-control input-md"></div>
+            </div>
+            <div class="form-group">
+                <div><input  name="password" type="password" placeholder="Password" class="form-control input-md"></div>
+            </div>
+            <button id="singlebutton" name="singlebutton" style="margin-top:15px" class="btn btn-primary btn-block">Login</button>
+        </form>
     </div>
-  </div>
-
 </div>
