@@ -2,7 +2,7 @@ const handleRoutes = require("./handles");
 const tweetRoutes = require("./tweets");
 const insightRoutes = require("./insights");
 const userRoutes = require('./users');
-const tweetInsightRoutes = require("./dashboard");
+const dashboardRoutes = require("./dashboard");
 
 const constructorMethod = app => {
     app.get('/', (req, res) => { res.render('index', {user: req.user})})
@@ -10,7 +10,7 @@ const constructorMethod = app => {
     //app.use("/tweets", tweetRoutes);
     //app.use("/insights", insightRoutes);
     app.use("/", userRoutes);
-    app.use("/dashboard", tweetInsightRoutes);
+    app.use("/dashboard", dashboardRoutes);
 
     app.use("*", (req, res) => {
         res.sendStatus(404);

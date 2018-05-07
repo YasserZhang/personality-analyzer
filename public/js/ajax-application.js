@@ -21,7 +21,7 @@ Questions:
     
     var requestConfig = {
       method: "POST",
-      url: "/tweetInsight",
+      url: "/dashboard",
       contentType: "application/json",
       data: JSON.stringify({
         userHandle: newUserHandle,
