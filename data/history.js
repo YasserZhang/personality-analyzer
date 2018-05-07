@@ -41,20 +41,35 @@ let exportedMethods = {
         return history
 
     },
-    //flaghistory
+    //flaghistory (FOR ADMIN USE)
     async flaggedHistory() {
         const historyCollection = await history()
         const history = await historyCollection.find({ "is_flagged": "true" })
 
         return history
     },
+    //unflaghistory
     async unflaggedHistory() {
         const historyCollection = await history()
         const history = await historyCollection.find({ "is_flagged": "false" })
 
         return history
+    },
+    //updateFlag
+    async updateFlagById(id, flag) {
+        const historyCollection = await history()
+
+        let updatedUser = {
+            is_flagged = flag
+        }
+
+        let updateCommand = { $set: updatedUser }
+        await historyCollection.updateOne({ _id: id }, updateCommand)
+        return await this.getHistoryById(id)
+
+
     }
-    //unflaghistory
+
 
 }
 module.exports = exportedMethods;
