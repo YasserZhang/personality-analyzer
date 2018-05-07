@@ -2,7 +2,7 @@ const dbConnection = require("./mongoConnection");
 
 let getCollectionFn = collection => {
     let _col = undefined;
-    return async () => {
+    return async() => {
         if (!_col) {
             const db = await dbConnection();
             _col = await db.collection(collection);
@@ -15,5 +15,6 @@ module.exports = {
     tweets: getCollectionFn("tweets"),
     handles: getCollectionFn("handles"),
     insights: getCollectionFn("personalityInsights"),
-    users: getCollectionFn("users")
+    users: getCollectionFn("users"),
+    history: getCollectionFn("history")
 };
