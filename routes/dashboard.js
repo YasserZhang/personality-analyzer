@@ -9,6 +9,7 @@ const getInsight = personalityInsights.getInsight;
 const tweetData = data.tweets;
 const handles = data.handles;
 const insightData = data.insights;
+const historyData = data.history;
 const dbConnection = require("../config/mongoConnection");
 const Twit = require('twit-promise');
 const Auth = require('../security/auth')
@@ -70,12 +71,6 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         behavior: newProfile.profile.behavior,
         consumption_preferences: newProfile.profile.consumption_preferences
     }
-    //await db.close();
-    res.render("result", structure);
-  } else {
-    console.log("tweet length", data.length);
-    res.json({"error": "no tweet data is found."});
-  }  
 });
 
 
