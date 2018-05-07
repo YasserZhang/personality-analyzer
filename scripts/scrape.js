@@ -3,6 +3,14 @@ const config = require("../config.js");
 const data = require("../data");
 const handles = data.handles;
 
+/*
+each handle can only be searched once,
+then it is saved in the mongodb,
+when we scrape its tweets for a second time, the max_id we previously saved
+in the handle collection is not recognized by the Twit API.
+As a result, the API scrape the handle's tweets from the newest.
+*/
+
 function decrement(str) {
     let list = str.split('');
     let uniq = new Set(list);
@@ -32,21 +40,32 @@ const exportedMethods = {
         if (options.count) {
             limit = options.count;
         } else {
-            limit = 3200;
+            limit = 10;
         }
         let tweetData = [];
         let handle = undefined;
         let maxId = undefined;
-        if (await handles.checkHandleByScreenName(options.screen_name) === false) {
+        let newId = await handles.checkHandleByScreenName(options.screen_name);
+        console.log(options.screen_name,"Is this a new Handle? ", newId);
+        if (!newId) {
             handle = await handles.getHandleByHandle(options.screen_name);
+            console.log("Since it is old handle, show me", handle);
             options.max_id = handle.max_id;
+            console.log(options.max_id);
         }
-        while(tweetData.length < limit && tweetData.length < 3200) {
+        while(tweetData.length < limit) {
             let data = await twitterClient.get('statuses/user_timeline', options)
                             .then(result => {
                                 return result.data;
                             }).catch(err=>console.log(err));
-            if (data.length === 0) break;
+            //console.log("from scrape: ", data);
+            console.log("from scrape data length", data.length);
+            if (!Array.isArray(data)) {
+                console.log(data);
+                return {tweetData: [],
+                maxId: undefined}
+            }
+            if (Array.isArray(data) && data.length === 0) break;
             let min_id = data[0].id_str;
             for(tw of data) {
                 if (min_id > tw.id_str) min_id = tw.id_str;

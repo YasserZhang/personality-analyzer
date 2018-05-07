@@ -62,4 +62,4 @@ router.get('/twitter/remove', Auth.isLoggedIn, async (req, res) => {
 //     res.send('Profile for: ' + req.param.id)
 // })
 
-module.exports = router
+module.exports = router;
