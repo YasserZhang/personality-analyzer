@@ -7,8 +7,8 @@ const tweetInsightRoutes = require("./tweetInsight");
 const constructorMethod = app => {
     app.get('/', (req, res) => { res.render('index', {user: req.user})})
     app.use("/handles", handleRoutes);
-    app.use("/tweets", tweetRoutes);
-    app.use("/insights", insightRoutes);
+    //app.use("/tweets", tweetRoutes);
+    //app.use("/insights", insightRoutes);
     app.use("/", userRoutes);
     app.use("/tweetInsight", tweetInsightRoutes);
 

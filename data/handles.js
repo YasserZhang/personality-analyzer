@@ -60,7 +60,7 @@ let exportedMethods = {
         };
         const newInsertInformation = await handleCollection.insertOne(newHandle);
         const newId = newInsertInformation.insertedId;
-        console.log(newId);
+        //console.log(newId);
         return await this.getHandleById(newId);
     }
 }
