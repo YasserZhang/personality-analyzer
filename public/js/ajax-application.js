@@ -26,10 +26,13 @@ Questions:
         //limit: newLimit
       })
     };
+    newContent.html("<p>Scraping started, it may take a while.</p><p>Please wait...</p>");
     $.ajax(requestConfig).then(function(responseMessage) {
+      
       console.log("ajax, ", responseMessage);
-      setTimeout(function() {newContent.html("<p>Scraping started, it may take a while.</p><p>Please wait...</p>")},500);
+      //setTimeout(function() {newContent.html("<p>Scraping started, it may take a while.</p><p>Please wait...</p>")},500);
       //var newElement = $(responseMessage);
+      
       insights.html(responseMessage);
       
     });
