@@ -37,7 +37,10 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.post('/login', passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }), (req, res) => {
-        res.redirect('/')
+    console.log("req.body: ", req.body)
+    var email = req.body.email
+    //console.log(email)
+    res.redirect('/')
 })
 
 router.get('/logout', (req, res) => {
@@ -62,4 +65,4 @@ router.get('/twitter/remove', Auth.isLoggedIn, async (req, res) => {
 //     res.send('Profile for: ' + req.param.id)
 // })
 
-module.exports = router;
+module.exports = router

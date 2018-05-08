@@ -1,20 +1,21 @@
-const express = require("express");
-const router = express.Router();
-const xss = require("xss");
-const data = require("../data");
-const config = require("../config.js");
-const scraper = require("../scripts/scrape");
-const personalityInsights = require("../scripts/personalityInsights");
-const getInsight = personalityInsights.getInsight;
-const tweetData = data.tweets;
-const handles = data.handles;
-const insightData = data.insights;
-const historyData = data.history;
-const dbConnection = require("../config/mongoConnection");
-const Twit = require('twit-promise');
+const express = require("express")
+const router = express.Router()
+const xss = require("xss")
+const data = require("../data")
+const config = require("../config.js")
+const scraper = require("../scripts/scrape")
+const personalityInsights = require("../scripts/personalityInsights")
+const getInsight = personalityInsights.getInsight
+const tweetData = data.tweets
+const handles = data.handles
+const insightData = data.insights
+const historyData = data.history
+const dbConnection = require("../config/mongoConnection")
+const Twit = require('twit-promise')
 const Auth = require('../security/auth')
+
 router.get("/",Auth.isLoggedIn, (req, res) => {
-  res.render("dashboard", {});
+  res.render("dashboard", {user: req.user})
   //const tweetList = await tweetData.getAllTweets();
   //res.json(tweetList);
   /*
@@ -34,23 +35,22 @@ router.post("/", function(request, response) {
 */
 ///////////////////////////////////////
 router.post("/", Auth.isLoggedIn, async function(req, res) {
-  //console.log(req.body);
-  const twitterClient = new Twit(config);
-  let options = {screen_name: req.body.userHandle,
-              count: undefined};
-  const tweets_maxId = await scraper.getStatuses(config, options);
-  let data = tweets_maxId.tweetData;
-  let maxId = tweets_maxId.maxId;
-  if (data.length !== 0) {
-    let handleUser = data[0].user;
-    if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
-        let newHandle = await handles.addHandle(handleUser, maxId);
+    const twitterClient = new Twit(config)
+    let options = {screen_name: req.body.userHandle,
+                count: undefined}
+    const tweets_maxId = await scraper.getStatuses(config, options)
+    let data = tweets_maxId.tweetData
+    let maxId = tweets_maxId.maxId
+    if (data.length !== 0) {
+        var handleUser = data[0].user
+        if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
+            let newHandle = await handles.addHandle(handleUser, maxId)
     } else {
-        let updatedHandle = await handles.updateHandMaxId(handleUser.screen_name, maxId);
-        console.log("updating maxId for user", handleUser.screen_name, maxId);
+        let updatedHandle = await handles.updateHandMaxId(handleUser.screen_name, maxId)
+        console.log("updating maxId for user", handleUser.screen_name, maxId)
         //console.log(updatedHandle);
     }
-    console.log("tweet data length: ", data.length);
+    console.log("tweet data length: ", data.length)
     /*
     let ids = []
     for (let i = 0; i < data.length; i++) {
@@ -58,10 +58,14 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         console.log(data[i].id_str);
         ids.push(data[i].id_str);
     }*/
-    let profile = await getInsight(data);
-    let newProfile = await insightData.addProfile(req.body.userHandle, profile);
+    let user_id = req.user._id
+    console.log("user id: ",user_id)
+    let profile = await getInsight(data)
+    // let newProfile = await insightData.addProfile(req.body.userHandle, profile)
+    /*
     let structure = {
         userHandle: newProfile.userHandle,
+        tweetCount: data.length,
         created: newProfile.created,
         word_count: newProfile.profile.word_count,
         processed_language: newProfile.profile.processed_language,
@@ -71,12 +75,21 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         behavior: newProfile.profile.behavior,
         consumption_preferences: newProfile.profile.consumption_preferences
     }
-        res.render("result", structure);
+    //console.log(structure)
+    */
+    let history = {
+        user_id: user_id,
+        target_handle: handleUser.screen_name,
+        tweets: data,
+        insights: profile
+    }
+    await historyData.createHistory(history)
+    res.json(history)
   } else {
-    console.log("tweet length", data.length);
-    res.json({"error": "no tweet data is found."});
+    console.log("tweet length", data.length)
+    res.json({"error": "no tweet data is found."})
   }
-});
+})
 
 
 
@@ -138,4 +151,4 @@ show the result page.
 // });
 
 
-module.exports = router;
+module.exports = router
