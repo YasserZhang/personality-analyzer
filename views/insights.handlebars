@@ -1,10 +1,13 @@
 <article class="new-insight">
   <h1>Get Personality Insight</h1>
-  <form action="/insights" method="POST" class="new-insight-form">
-    <label>
-      Type in a twitter handle</br>
-      <input type="text" name="userHandle" placeholder="DrDavidDuke" value="{{userHandle}}" class="full-width-input"/>
-    </label>
-    <button type="submit">Submit</button>
+  <form action="/insights" method="POST">
+    <div class="form-row">
+      <div class="col">
+        <input type="text"  name="userHandle" class="form-control" placeholder="Type in a twitter handle" value="{{userHandle}}">
+      </div>
+      <div class="col">
+      <button type="submit" class="btn btn-primary mb-2" style="margin-left:280px;margin-top:10px">Submit</button>
+      </div>
+    </div>
   </form>
 </article>

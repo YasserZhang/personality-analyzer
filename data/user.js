@@ -6,7 +6,6 @@ const uuid = require("node-uuid");
 // User Schema
 let exportMethods = {
 	async createUser(newUser){
-		// Add validation
 		const hashPassword = await bcrypt.hash(newUser.password,10);
 		const usersCollection = await users();
 		let user = {
@@ -21,7 +20,6 @@ let exportMethods = {
 		return await this.getUserById(newID);
 	},
 	async createUserTwitter(newUser){
-		// Add validation
 		const usersCollection = await users();
         newUser._id = uuid.v4()
 		const newInsertInfo = await usersCollection.insertOne(newUser);
@@ -31,9 +29,6 @@ let exportMethods = {
 	async getUserById(id){
 		const usersCollection = await users();
 		const user = await usersCollection.findOne({_id:id});
-		// if (!user){
-		// 	throw 'User not found'
-		// }
 		return user;
 	},
 	async getUserByUsername(name){
@@ -42,8 +37,9 @@ let exportMethods = {
 		return user;
 	},
 	async comparePassword(candidatePassword, hash){
+		let compare=null;
 		try{
-			let compare = await bcrypt.compare(candidatePassword,hash)
+			 compare = await  bcrypt.compare(candidatePassword,hash)
 		}
 		catch(e){
 			throw 'Password not matched'
