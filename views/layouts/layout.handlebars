@@ -65,9 +65,9 @@
                     </div>
                   {{/if}}
 
-                  {{#if error}}
+                  {{#if errors}}
                     <div class="alert alert-danger alert-dismissible fade show">
-                        {{error}}
+                        {{errors.[0].msg}}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

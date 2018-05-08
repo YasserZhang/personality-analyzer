@@ -1,3 +1,4 @@
+
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
@@ -28,6 +29,7 @@ router.post('/register', async (req, res, next) => {
     const errors = req.validationErrors()
 
     if (errors) {
+        console.log(errors)
         res.render('register', { errors: errors })
     } else {
         next()
@@ -51,9 +53,57 @@ router.get('/profile', Auth.isLoggedIn, async (req, res) => {
 })
 
 router.get('/profile/edit', Auth.isLoggedIn, async (req, res) => {
-    res.render('profile-edit', {user: req.user})
+    let formUser = req.user;
+    res.render('profile-edit', {user: req.user, formUser:formUser})
 })
+router.get('/profile/changepassword', Auth.isLoggedIn, async (req, res) => {
+    res.render('changepassword', {user: req.user})
+})
+router.post('/save',Auth.isLoggedIn, async (req, res) => {
+    let formUser = req.user;
+    const userID = req.body.userID;
+    const userName = req.body.userName;
+    const userEmail = req.body.userEmail;
 
+    req.checkBody('userName', 'Name is required').notEmpty()
+    req.checkBody('userEmail', 'Email is required').notEmpty()
+    
+    formUser.email = userEmail;
+    formUser.name = userName;
+    if (userEmail) {
+        req.checkBody('userEmail', 'Email is not valid').isEmail()
+    }
+    const errors = req.validationErrors();
+   
+    // for(let e in errors){
+    //     if(errors[e].param == 'userName'){
+    //         formData.name = "";
+    //     }
+    //     if(errors[e].param == 'userEmail'){
+    //         formData.email = "";
+    //     }
+    // }
+    if(errors){
+        return res.render('profile-edit', { errors: errors ,formUser:formUser,user:req.user})
+    }
+    const usr = User.updateProfile(userID,userName,userEmail);
+    if(!usr){
+        throw 'something wrong';
+    }
+    req.flash('success_msg', 'Data Updated.')
+    res.redirect('/profile')
+});
+router.post('/updatepassword',async(req,res)=>{
+    let ps1 = req.body.password1;
+    let ps2 = req.body.password2;
+    req.checkBody('ps1', 'Password is required').notEmpty();
+    req.checkBody('ps2', 'Passwords do not match').equals(req.body.password);
+    const errors = req.validationErrors()
+
+    if (errors) {
+        res.render('changepassword', { errors: errors })
+    }
+});
 router.get('/twitter/remove', Auth.isLoggedIn, async (req, res) => {
     res.render('profile-edit', {user: req.user})
 })

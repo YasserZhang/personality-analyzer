@@ -105,6 +105,18 @@ let exportMethods = {
         }
         console.log(compare);
         return compare
+    },
+    async updateProfile(id,name,email){
+        const usersCollection = await users()
+        const user = await usersCollection.findOne({_id:id})
+
+        if (!user){
+            throw 'NOT_FOUND'
+        }
+        const query = { _id: id }
+        var newvalues = { $set: {name: name,email: email} };
+        await usersCollection.updateOne(query, newvalues);
+        return await this.getUserById(id);
     }
 }
 
