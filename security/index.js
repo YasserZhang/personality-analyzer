@@ -14,12 +14,12 @@ Security.init = app => {
     Local.init(app, passport)
 
     passport.serializeUser((user, cb) => {
-        console.log(">>>>>>>>>>> passport.serializeUser:", user)
+        //console.log(">>>>>>>>>>> passport.serializeUser:", user)
         cb(null, user._id)
     })
 
     passport.deserializeUser(async (id, cb) => {
-        console.log(">>>>>>>>>>> passport.deserializeUser:", id)
+        //console.log(">>>>>>>>>>> passport.deserializeUser:", id)
 
         try {
             let user = await User.getUserById(id)

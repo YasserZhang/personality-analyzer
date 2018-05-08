@@ -13,6 +13,7 @@ const historyData = data.history
 const dbConnection = require("../config/mongoConnection")
 const Twit = require('twit-promise')
 const Auth = require('../security/auth')
+
 router.get("/",Auth.isLoggedIn, (req, res) => {
   res.render("dashboard", {user: req.user})
   //const tweetList = await tweetData.getAllTweets();
@@ -34,17 +35,16 @@ router.post("/", function(request, response) {
 */
 ///////////////////////////////////////
 router.post("/", Auth.isLoggedIn, async function(req, res) {
-  //console.log(req.body);
-  const twitterClient = new Twit(config)
-  let options = {screen_name: req.body.userHandle,
-              count: undefined}
-  const tweets_maxId = await scraper.getStatuses(config, options)
-  let data = tweets_maxId.tweetData
-  let maxId = tweets_maxId.maxId
-  if (data.length !== 0) {
-    let handleUser = data[0].user
-    if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
-        let newHandle = await handles.addHandle(handleUser, maxId)
+    const twitterClient = new Twit(config)
+    let options = {screen_name: req.body.userHandle,
+                count: undefined}
+    const tweets_maxId = await scraper.getStatuses(config, options)
+    let data = tweets_maxId.tweetData
+    let maxId = tweets_maxId.maxId
+    if (data.length !== 0) {
+        var handleUser = data[0].user
+        if(await handles.checkHandleByScreenName(handleUser.screen_name)) {
+            let newHandle = await handles.addHandle(handleUser, maxId)
     } else {
         let updatedHandle = await handles.updateHandMaxId(handleUser.screen_name, maxId)
         console.log("updating maxId for user", handleUser.screen_name, maxId)
@@ -58,10 +58,14 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         console.log(data[i].id_str);
         ids.push(data[i].id_str);
     }*/
+    let user_id = req.user._id
+    console.log("user id: ",user_id)
     let profile = await getInsight(data)
-    let newProfile = await insightData.addProfile(req.body.userHandle, profile)
+    // let newProfile = await insightData.addProfile(req.body.userHandle, profile)
+    /*
     let structure = {
         userHandle: newProfile.userHandle,
+        tweetCount: data.length,
         created: newProfile.created,
         word_count: newProfile.profile.word_count,
         processed_language: newProfile.profile.processed_language,
@@ -71,7 +75,16 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         behavior: newProfile.profile.behavior,
         consumption_preferences: newProfile.profile.consumption_preferences
     }
-        res.render("result", structure)
+    //console.log(structure)
+    */
+    let history = {
+        user_id: user_id,
+        target_handle: handleUser.screen_name,
+        tweets: data,
+        insights: profile
+    }
+    await historyData.createHistory(history)
+    res.json(history)
   } else {
     console.log("tweet length", data.length)
     res.json({"error": "no tweet data is found."})

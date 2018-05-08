@@ -37,6 +37,9 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.post('/login', passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }), (req, res) => {
+    console.log("req.body: ", req.body)
+    var email = req.body.email
+    //console.log(email)
     res.redirect('/')
 })
 
