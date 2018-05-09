@@ -76,15 +76,6 @@ router.post('/updateprofile', Auth.isLoggedIn, async(req, res) => {
         req.checkBody('userEmail', 'Email is not valid').isEmail()
     }
     const errors = req.validationErrors();
-
-    // for(let e in errors){
-    //     if(errors[e].param == 'userName'){
-    //         formData.name = "";
-    //     }
-    //     if(errors[e].param == 'userEmail'){
-    //         formData.email = "";
-    //     }
-    // }
     if (errors) {
         return res.render('profile-edit', { errors: errors, formUser: formUser, user: req.user })
     }
@@ -102,14 +93,11 @@ router.post('/updatepassword', async(req, res) => {
     let ps1 = req.body.password1;
     let ps2 = req.body.password2;
     req.checkBody('ps1', 'Password is required').notEmpty();
-    //req.checkBody('ps2', 'Passwords do not match').equals(req.body.password);
-    //const errors = req.validationErrors()
     req.checkBody('ps2', 'Passwords do not match').equals(req.body.password1);
 
     const errors = req.validationErrors()
     if (errors) {
-        //res.render('changepassword', { errors: errors })
-        return res.render('changepassword', { errors: errors })
+        return res.render('changepassword', { errors: errors,user:req.user })
     }
     const usr = User.updatePassword(userID, ps1);
     if (!usr) {
