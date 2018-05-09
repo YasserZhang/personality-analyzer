@@ -1,6 +1,10 @@
 <i id="id-hooker" class="invisible">{{user._id}}</i>
 <div class="page-header">
-    <h1>{{user.name}}'s Dashboard</h1>
+    {{#if user.name}}
+      <h1>{{user.name}}'s Dashboard</h1>
+    {{else}}
+      <h1>Dashboard</h1>
+    {{/if}}
 </div>
 <div class="row">
     <div class="col-md-9" >
