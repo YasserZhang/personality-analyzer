@@ -40,7 +40,6 @@ router.post('/register', async(req, res, next) => {
 router.post('/login', passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }), (req, res) => {
     console.log("req.body: ", req.body)
     var email = req.body.email
-        //console.log(email)
     res.redirect('/')
 })
 
@@ -81,7 +80,6 @@ router.post('/updateprofile', Auth.isLoggedIn, async(req, res) => {
     }
     const usr = User.updateProfile(userID, userName, userEmail);
     if (!usr) {
-        //throw 'something wrong';
         throw 'Error while updating profile.'
         res.render('profile-edit')
     }
@@ -89,17 +87,18 @@ router.post('/updateprofile', Auth.isLoggedIn, async(req, res) => {
     res.redirect('/profile')
 });
 router.post('/updatepassword', async(req, res) => {
-    const userID = req.body.userID;
-    let ps1 = req.body.password1;
-    let ps2 = req.body.password2;
-    req.checkBody('ps1', 'Password is required').notEmpty();
-    req.checkBody('ps2', 'Passwords do not match').equals(req.body.password1);
+    const userID = req.user._id;
+    const password1 = req.body.password1
+    const password2 = req.body.password2
+    req.checkBody('password1', 'Password is required').notEmpty()
+    req.checkBody('password2', 'Passwords do not match').equals(req.body.password1)
 
     const errors = req.validationErrors()
+    
     if (errors) {
         return res.render('changepassword', { errors: errors,user:req.user })
     }
-    const usr = User.updatePassword(userID, ps1);
+    const usr = User.updatePassword(userID, password1);
     if (!usr) {
         throw 'Error While Updating Password.';
         res.render('changepassword');
