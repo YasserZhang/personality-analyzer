@@ -46,3 +46,11 @@ footer {
         transform: rotate(360deg);
     }
 }
+h1.display-4{
+    text-decoration: underline;
+    font-size: 36px;
+    text-align: center;
+}
+h2.display-4{
+    font-size: 28px;
+}
