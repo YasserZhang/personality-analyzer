@@ -23,11 +23,11 @@ $(() => {
         }
 
         loader.show()
-        analyzeButton.prop("disabled",true)
+        analyzeButton.prop("disabled", true)
 
         $.ajax(requestConfig).then(function(responseMessage) {
             loader.hide()
-            analyzeButton.prop("disabled",false)
+            analyzeButton.prop("disabled", false)
             createViz(responseMessage)
         });
     });
@@ -57,7 +57,7 @@ function createViz(d) {
     var viz = $("#viz")
     var title = $("#viz-title")
     var button = $("#flag-button")
-    title.text('Personality Analyzation for @' + d.target_handle)
+    title.text('Personality Insights for @' + d.target_handle)
 
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
@@ -83,6 +83,6 @@ function createViz(d) {
     if (d.is_flagged) {
 
     }
-    
+
     viz.modal('show')
 }

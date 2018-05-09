@@ -4,8 +4,8 @@ const users = mongoCollections.users
 const uuid = require("node-uuid")
 
 let exportMethods = {
-    async createUserLocal(u){
-        const hashPassword = await bcrypt.hash(u.password,10)
+    async createUserLocal(u) {
+        const hashPassword = await bcrypt.hash(u.password, 10)
         const usersCollection = await users()
 
         let user = {
@@ -24,7 +24,7 @@ let exportMethods = {
         return await this.getUserById(newID)
     },
 
-    async createUserTwitter(u){
+    async createUserTwitter(u) {
         const usersCollection = await users()
 
         let user = {
@@ -44,37 +44,37 @@ let exportMethods = {
         return await this.getUserById(newID)
     },
 
-    async getUserById(id){
+    async getUserById(id) {
         const usersCollection = await users()
-        const user = await usersCollection.findOne({_id:id})
+        const user = await usersCollection.findOne({ _id: id })
 
-        if (!user){
+        if (!user) {
             throw 'NOT_FOUND'
         }
 
         return user
     },
 
-    async getUserByUsername(username){
+    async getUserByUsername(username) {
         const usersCollection = await users()
-        const user = await usersCollection.findOne({username})
+        const user = await usersCollection.findOne({ username })
 
-        if (!user){
+        if (!user) {
             throw 'NOT_FOUND'
         }
 
         return user
     },
 
-    async getUserByEmail(email){
+    async getUserByEmail(email) {
         const usersCollection = await users()
-        const user = await usersCollection.findOne({email})
+        const user = await usersCollection.findOne({ email })
         return user
     },
 
-    async getUserByTwitter(twitter_token){
+    async getUserByTwitter(twitter_token) {
         const usersCollection = await users()
-        const user = await usersCollection.findOne({twitter_token})
+        const user = await usersCollection.findOne({ twitter_token })
         return user
     },
 
@@ -88,34 +88,46 @@ let exportMethods = {
             twitter_secret: t.twitter_secret
         }
 
-        let updateCommand = {  $set: updatedUser }
+        let updateCommand = { $set: updatedUser }
         const query = { _id: u._id }
         await usersCollection.updateOne(query, updateCommand);
         return await this.getUserById(u._id);
     },
 
-    async comparePassword(candidatePassword, hash){
+    async comparePassword(candidatePassword, hash) {
         let compare = false
 
         try {
-            compare = await bcrypt.compare(candidatePassword,hash)
-        } catch(e){
+            compare = await bcrypt.compare(candidatePassword, hash)
+        } catch (e) {
             console.log(e);
             throw 'Password not matched'
         }
         console.log(compare);
         return compare
     },
-    async updateProfile(id,name,email){
+    async updateProfile(id, name, email) {
         const usersCollection = await users()
-        const user = await usersCollection.findOne({_id:id})
+        const user = await usersCollection.findOne({ _id: id })
 
-        if (!user){
+        if (!user) {
             throw 'NOT_FOUND'
         }
         const query = { _id: id }
-        var newvalues = { $set: {name: name,email: email} };
+        var newvalues = { $set: { name: name, email: email } };
         await usersCollection.updateOne(query, newvalues);
+        return await this.getUserById(id);
+    },
+    async updatePassword(id, password) {
+        const usersCollection = await users()
+        const user = await usersCollection.findOne({ _id: id })
+        if (!user) {
+            throw 'NOT_FOUND'
+        }
+        const query = { _id: id };
+        const hashPassword = await bcrypt.hash(password, 10);
+        var newPassword = { $set: { password: hashPassword } };
+        await usersCollection.updateOne(query, newPassword);
         return await this.getUserById(id);
     }
 }
