@@ -37,7 +37,7 @@ router.post("/", function(request, response) {
 router.post("/", Auth.isLoggedIn, async function(req, res) {
     const twitterClient = new Twit(config)
     let options = {screen_name: req.body.userHandle,
-                count: undefined}
+                count: 1600}
     const tweets_maxId = await scraper.getStatuses(config, options)
     let data = tweets_maxId.tweetData
     let maxId = tweets_maxId.maxId
