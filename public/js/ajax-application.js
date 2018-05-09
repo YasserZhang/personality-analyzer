@@ -1,41 +1,58 @@
-/*
-Questions:
-  I can use ajax to submit user handle now, however, I still need to figure out in what way
-  I can tell the user that his/her tweets scraping request has been finished.
-  or say, how can I receive data from the server through ajax?
-*/
+$(() => {
+    var tweetForm = $("#new-tweet-form");
+    var newUserHandleInput = $("#userHandle");
+    var loader = $(".loader")
+    var analyzeButton = $("#analyze-button")
+    loader.hide()
 
-(function($) {
-  var tweetForm = $("#new-tweet-form");
-  var newUserHandleInput = $("#userHandle");
-  //var newLimitInput = $("#limit");
-  
-  tweetForm.submit(function(event) {
-    event.preventDefault();
+    tweetForm.submit(function(event) {
+        event.preventDefault();
 
-    var newUserHandle = newUserHandleInput.val();
-    //var newLimit = newLimitInput.val();
-    var newContent = $("#new-content");
-    var insights = $("#insight-results");
-    var insightButton = $("#get-insight");
-    
-    var requestConfig = {
-      method: "POST",
-      url: "/dashboard",
-      contentType: "application/json",
-      data: JSON.stringify({
-        userHandle: newUserHandle,
-        //limit: newLimit
-      })
-    };
-    newContent.html("<p>Scraping started, it may take a while.</p><p>Please wait...</p>");
-    $.ajax(requestConfig).then(function(responseMessage) {
-      
-      console.log("ajax, ", responseMessage);
-      //setTimeout(function() {newContent.html("<p>Scraping started, it may take a while.</p><p>Please wait...</p>")},500);
-      //var newElement = $(responseMessage);
-      insights.html(responseMessage);
-      insightButton.removeClass("invisible");
+        var newUserHandle = newUserHandleInput.val();
+        var newContent = $("#new-content");
+        var insights = $("#insight-results");
+        var insightButton = $("#get-insight");
+
+        var requestConfig = {
+            method: "POST",
+            url: "/dashboard",
+            contentType: "application/json",
+            data: JSON.stringify({
+                userHandle: newUserHandle,
+            })
+        }
+
+        loader.show()
+        analyzeButton.prop("disabled",true)
+
+        $.ajax(requestConfig).then(function(responseMessage) {
+            loader.hide()
+            console.log(responseMessage);
+            analyzeButton.prop("disabled",false)
+            createViz(responseMessage)
+        });
     });
-  });
-})(window.jQuery);
+});
+
+function createViz(d) {
+    var viz = $("#viz")
+    var title = $("#viz-title")
+    title.text('Personality Analyzation for @' + d.target_handle)
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['"Openness"', 'Conscientiousness', 'Extraversion', 'Agreeableness', '"Emotional range"'],
+            datasets: [{
+                label: 'Personality',
+                data: [0.8256042045085723, 0.613151636253752, 0.4003510441948985, 0.17798726661847952, 0.8668038137863614],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1
+            }]
+        }
+    })
+
+    viz.modal('show')
+}
