@@ -26,20 +26,12 @@ let exportedMethods = {
     async getHistoryById(id) {
         const historyCollection = await history()
         const h = await historyCollection.findOne({ _id: id })
-
-        if (!h) {
-            throw 'NOT_FOUND'
-        }
-
         return h
     },
     //gethistoryforUSER
     async getHistoryForUser(user_id) {
         const historyCollection = await history()
-        const h = await historyCollection.findOne({ user_id: user_id })
-
-        return h
-
+        return await historyCollection.find({}).project({user_id: user_id}).toArray()
     },
     //flaghistory (FOR ADMIN USE)
     async flaggedHistory() {

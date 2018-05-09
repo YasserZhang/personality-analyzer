@@ -27,16 +27,36 @@ $(() => {
 
         $.ajax(requestConfig).then(function(responseMessage) {
             loader.hide()
-            console.log(responseMessage);
             analyzeButton.prop("disabled",false)
             createViz(responseMessage)
         });
     });
 });
 
+function createHistoryViz(id) {
+    var loader = $(".loader")
+    loader.show()
+    console.log(id);
+
+    var requestConfig = {
+        method: "GET",
+        url: "/history/" + id,
+        contentType: "application/json",
+    }
+
+    $.get("/history/" + id).then(function(d) {
+        loader.hide()
+        console.log(d);
+        createViz(d)
+    });
+}
+
 function createViz(d) {
+    console.log("Starting Viz...");
+    console.log(d);
     var viz = $("#viz")
     var title = $("#viz-title")
+    var button = $("#flag-button")
     title.text('Personality Analyzation for @' + d.target_handle)
 
     var ctx = document.getElementById("myChart").getContext('2d');
@@ -46,7 +66,13 @@ function createViz(d) {
             labels: ['"Openness"', 'Conscientiousness', 'Extraversion', 'Agreeableness', '"Emotional range"'],
             datasets: [{
                 label: 'Personality',
-                data: [0.8256042045085723, 0.613151636253752, 0.4003510441948985, 0.17798726661847952, 0.8668038137863614],
+                data: [
+                    d.insights.personality[0].percentile,
+                    d.insights.personality[1].percentile,
+                    d.insights.personality[2].percentile,
+                    d.insights.personality[3].percentile,
+                    d.insights.personality[4].percentile
+                ],
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgba(255,99,132,1)',
                 borderWidth: 1
@@ -54,5 +80,9 @@ function createViz(d) {
         }
     })
 
+    if (d.is_flagged) {
+
+    }
+    
     viz.modal('show')
 }
