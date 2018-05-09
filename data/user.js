@@ -117,7 +117,20 @@ let exportMethods = {
         var newvalues = { $set: {name: name,email: email} };
         await usersCollection.updateOne(query, newvalues);
         return await this.getUserById(id);
-    }
+    },
+    async updatePassword(id,password){
+        const usersCollection = await users()
+        const user = await usersCollection.findOne({_id:id})
+        if (!user){
+            throw 'NOT_FOUND'
+        }
+        const query = { _id: id };
+        const hashPassword = await bcrypt.hash(password,10);
+        var newPassword = { $set: {password:hashPassword} };
+        await usersCollection.updateOne(query, newPassword);
+        return await this.getUserById(id);
+    }   
+
 }
 
 module.exports = exportMethods

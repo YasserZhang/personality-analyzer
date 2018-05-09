@@ -3,13 +3,27 @@ main {
 }
 
 footer {
-    position: relative;
-    bottom: 0px;
-    margin-top: 150px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #007bff!important;
+    color: white;
+    text-align: center;
+    height: 35px;
+
 }
 #btns{
     margin-left: 190px;
 }
+
+#profileName{
+    color: #fff;
+}
+#divfooter{
+    margin-top: 5px;
+}
+
 
 .loader {
     border: 5px solid #f3f3f3;
@@ -26,3 +40,4 @@ footer {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
