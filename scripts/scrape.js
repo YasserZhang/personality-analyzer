@@ -40,7 +40,7 @@ const exportedMethods = {
         if (options.count) {
             limit = options.count;
         } else {
-            limit = 10;
+            limit = 3200;
         }
         let tweetData = [];
         let handle = undefined;

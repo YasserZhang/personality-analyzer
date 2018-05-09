@@ -1,6 +1,12 @@
 ## Social Media Data Based Personality Analyzer
 ### What This App Can Do
-This app gives a quantitative description of a twitter user's personality based on his/er recent tweets.
+This app gives a quantitative description of a twitter user's personality based on his/er recent tweets.  
+
+<img src="img/screen_shot.png"
+    alt="Markdown Monster icon"
+    style="float: left; 
+    margin-top:10px;
+    margin-right: 20px; margin-bottom: 20px" />   
 
 ### Motivation
 We still vividly remember the heartbroken news in February 15, that is, a 19-year-old teenager killed 17 of his schoolmates and teachers and injured dozens at Marjory Stoneman Douglas High School in Parkland, Florida.  
