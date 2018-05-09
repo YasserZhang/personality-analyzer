@@ -40,43 +40,29 @@ Dashboard is where a user implements personality analysin on a target's tweets. 
 
 To just give a taste of what you can have from our service, we dis analyses on some famous people.  
 
-<img src="img/BarackObama.png"
-    alt="Markdown Monster icon"
-    style="float: left; 
-    margin-top:10px;
-    margin-right: 20px; margin-bottom: 20px;
-    width: 45%" />   
+Hillary Clinton             |  Barack Obama
+:-------------------------:|:-------------------------:
+![](img/HillaryClinton.png)  |  ![](img/BarackObama.png)
 
-<img src="img/HillaryClinton.png"
-    alt="Markdown Monster icon"
-    style="float: right; 
-    margin-top:10px;
-    margin-right: 20px; margin-bottom: 20px;
-    width: 45%" /> 
+David Duke             |  Donald Trump
+:-------------------------:|:-------------------------:
+![](img/DavidDuke.png)  |  ![](img/donaldTrump.png)
 
-<img src="img/donaldTrump.png"
-    alt="Markdown Monster icon"
-    style="float: left; 
-    margin-top:10px;
-    margin-right: 20px; margin-bottom: 20px;
-    width: 45%" />   
-
-<img src="img/DavidDuke.png"
-    alt="Markdown Monster icon"
-    style="float: right; 
-    margin-top:10px;
-    margin-right: 20px; margin-bottom: 20px;
-    width: 45%" /> 
-
-<img src="img/Pontifex.png"
-    alt="Markdown Monster icon"
-    style="float: right; 
-    margin-top:10px;
-    margin-right: 20px; margin-bottom: 20px;width: 45%" /> 
-The user is able to flag an analysis for further attention. The user is also able to see all of his/her historical searches.  
+Pope Francis            |  Dalai Lama
+:-------------------------:|:-------------------------:
+![](img/Pontifex.png)  |  ![](img/dalailama.png)
+The user is able to flag an analysis for further attention. The user is also able to see all of his/her historical searches. 
 
 <img src="img/history.png"
     alt="Markdown Monster icon"
-    style="float: right; 
+    style="float: center; 
     margin-top:10px;
-    margin-right: 20px; margin-bottom: 20px;" /> 
+    margin-right: 20px; margin-bottom: 20px; width: 70%" /> 
+
+If the user is an administrator, his/her dashboard is a little bit different, as shown below.
+
+<img src="img/admin_dashboard.png"
+    alt="Markdown Monster icon"
+    style="float: center; 
+    margin-top:10px;
+    margin-right: 20px; margin-bottom: 20px; width: 70%" /> 
