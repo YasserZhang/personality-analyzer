@@ -17,10 +17,14 @@
             <tbody>
                 {{#each history}}
                 <tr>
-                    <th scope="row">{{@index}}</th>
-                    <td>{{this.target_handle}}</td>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>@{{this.target_handle}}</td>
                     <td>{{this.created_At}}</td>
-                    <td>{{this.is_flagged}}</td>
+                    {{#if this.is_flagged}}
+                        <td><span style="color: green;">YES</span></td>
+                    {{else}}
+                        <td><span style="color: red;">NO</span></td>
+                    {{/if}}
                     <td>
                         <button type="button" class="btn btn-primary" onclick="createHistoryViz('{{this._id}}')">
                             <i class="fa fa-eye" aria-hidden="true"></i>
