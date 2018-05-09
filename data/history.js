@@ -32,17 +32,17 @@ let exportedMethods = {
     //gethistoryforUSER
     async getHistoryForUser(user_id) {
         const historyCollection = await history()
-        return await historyCollection.find({}).sort({created_At: -1}).project({user_id: user_id}).toArray()
+        return await historyCollection.find({}).project({user_id: user_id}).toArray()
     },
     //flaghistory (FOR ADMIN USE)
     async flaggedHistory() {
         const historyCollection = await history()
-        return await historyCollection.find({is_flagged: true}).sort({created_At: -1}).toArray()
+        return await historyCollection.find({is_flagged: true}).toArray()
     },
     //unflaghistory
     async unflaggedHistory() {
         const historyCollection = await history()
-        return await historyCollection.find({is_flagged: false}).sort({created_At: -1}).toArray()
+        return await historyCollection.find({is_flagged: false}).toArray()
     },
     //updateFlag
     async updateFlagById(id, flag) {
