@@ -31,8 +31,9 @@ let exportedMethods = {
     },
     //gethistoryforUSER
     async getHistoryForUser(user_id) {
+        console.log(user_id);
         const historyCollection = await history()
-        return await historyCollection.find({}).project({user_id: user_id}).toArray()
+        return await historyCollection.find({user_id: user_id}).toArray()
     },
     //flaghistory (FOR ADMIN USE)
     async flaggedHistory() {

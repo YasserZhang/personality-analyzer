@@ -5,7 +5,7 @@ const historyData = data.history
 const Auth = require('../security/auth')
 
 router.get('/', Auth.isLoggedIn, async (req, res) => {
-    let h = await historyData.getHistoryForUser(req.user.user_id)
+    let h = await historyData.getHistoryForUser(req.user._id)
     res.render('history', {user: req.user, history:h.reverse()})
 })
 
