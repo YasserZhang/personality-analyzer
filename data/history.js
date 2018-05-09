@@ -10,6 +10,7 @@ let exportedMethods = {
         let newHistory = {
             _id: uuid.v4(),
             user_id: h.user_id,
+            user_name: h.user_name,
             target_handle: h.target_handle,
             created_At: new Date(),
             is_flagged: false,
@@ -31,21 +32,17 @@ let exportedMethods = {
     //gethistoryforUSER
     async getHistoryForUser(user_id) {
         const historyCollection = await history()
-        return await historyCollection.find({}).project({user_id: user_id}).toArray()
+        return await historyCollection.find({}).sort({created_At: -1}).project({user_id: user_id}).toArray()
     },
     //flaghistory (FOR ADMIN USE)
     async flaggedHistory() {
         const historyCollection = await history()
-        const h = await historyCollection.find({ "is_flagged": "true" })
-
-        return h
+        return await historyCollection.find({is_flagged: true}).sort({created_At: -1}).toArray()
     },
     //unflaghistory
     async unflaggedHistory() {
         const historyCollection = await history()
-        const h = await historyCollection.find({ "is_flagged": "false" })
-
-        return h
+        return await historyCollection.find({is_flagged: false}).sort({created_At: -1}).toArray()
     },
     //updateFlag
     async updateFlagById(id, flag) {

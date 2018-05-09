@@ -3,6 +3,7 @@ $(() => {
     var newUserHandleInput = $("#userHandle");
     var loader = $(".loader")
     var analyzeButton = $("#analyze-button")
+
     loader.hide()
 
     tweetForm.submit(function(event) {
@@ -57,6 +58,7 @@ function createViz(d) {
     var viz = $("#viz")
     var title = $("#viz-title")
     var button = $("#flag-button")
+
     title.text('Personality Analyzation for @' + d.target_handle)
 
     var ctx = document.getElementById("myChart").getContext('2d');
@@ -80,9 +82,25 @@ function createViz(d) {
         }
     })
 
-    if (d.is_flagged) {
+    button.off()
 
+    if (d.is_flagged) {
+        button.html('Un-flag it')
+        button.click(() => {
+            $.get("/history/unflag/" + d._id).then(function(d) {
+                viz.modal('hide')
+                location.reload()
+            });
+        })
+    } else {
+        button.html('Flag it!')
+        button.click(() => {
+            $.get("/history/flag/" + d._id).then(function(d) {
+                viz.modal('hide')
+                location.reload()
+            });
+        })
     }
-    
+
     viz.modal('show')
 }

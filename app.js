@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser')
 const exphbs = require("express-handlebars")
 const flash = require('connect-flash')
 const session = require('express-session')
+const Handlebars = require('handlebars');
 
 app.use("/public", static)
 app.use(bodyParser.json())
@@ -29,6 +30,10 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error')
     res.locals.user = req.user || null
     next()
+})
+
+Handlebars.registerHelper("inc", (value, options) => {
+    return parseInt(value) + 1;
 })
 
 Security.init(app)

@@ -1,10 +1,72 @@
 <div class="page-header">
     <h1>Admin</h1>
 </div>
+
 <div class="row">
     <div class="col-md-12" >
-table
+        <h2>Flagged</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Creator name</th>
+                    <th scope="col">Creator Id</th>
+                    <th scope="col">Target</th>
+                    <th scope="col">Date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each flagged}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>{{this.user_name}}</td>
+                    <td>{{this.user_id}}</td>
+                    <td>@{{this.target_handle}}</td>
+                    <td>{{this.created_At}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="createHistoryViz('{{this._id}}')">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-12" >
+        <h2>Un flagged</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Creator name</th>
+                    <th scope="col">Creator Id</th>
+                    <th scope="col">Target</th>
+                    <th scope="col">Date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each unFlagged}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>{{this.user_name}}</td>
+                    <td>{{this.user_id}}</td>
+                    <td>@{{this.target_handle}}</td>
+                    <td>{{this.created_At}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick="createHistoryViz('{{this._id}}')">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -22,7 +84,7 @@ table
         <canvas id="myChart" width="400" height="400"></canvas>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Flag it!</button>
+        <button id="flag-button" type="button" class="btn btn-primary">Flag it!</button>
       </div>
     </div>
   </div>

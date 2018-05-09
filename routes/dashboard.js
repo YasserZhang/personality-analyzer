@@ -79,6 +79,7 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
     */
     let history = {
         user_id: user_id,
+        user_name: req.user.name,
         target_handle: handleUser.screen_name,
         tweets: data,
         insights: profile

@@ -6,14 +6,21 @@ const Auth = require('../security/auth')
 
 router.get('/', Auth.isLoggedIn, async (req, res) => {
     let h = await historyData.getHistoryForUser(req.user.user_id)
-    console.log(h);
-    res.render('history', {user: req.user, history:h.reverse()})
+    res.render('history', {user: req.user, history:h})
 })
 
 router.get('/:id', Auth.isLoggedIn, async (req, res) => {
-    console.log(req.params.id);
     let h = await historyData.getHistoryById(req.params.id)
-    console.log(h);
+    res.json(h)
+})
+
+router.get('/flag/:id', Auth.isLoggedIn, async(req, res) => {
+    let h = await historyData.updateFlagById(req.params.id, true)
+    res.json(h)
+})
+
+router.get('/unflag/:id', Auth.isLoggedIn, async(req, res) => {
+    let h = await historyData.updateFlagById(req.params.id, false)
     res.json(h)
 })
 
