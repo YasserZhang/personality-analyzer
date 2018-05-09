@@ -83,8 +83,8 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
         tweets: data,
         insights: profile
     }
-    await historyData.createHistory(history)
-    res.json(history)
+    let hObj = await historyData.createHistory(history)
+    res.json(hObj)
   } else {
     console.log("tweet length", data.length)
     res.json({"error": "no tweet data is found."})
@@ -100,7 +100,7 @@ router.post("/", Auth.isLoggedIn, async function(req, res) {
 
 //////////////////////////////////////
 /*
-old version to add tweets to tweet collection, and add insights to insights collection, and 
+old version to add tweets to tweet collection, and add insights to insights collection, and
 show the result page.
 */
 
@@ -147,7 +147,7 @@ show the result page.
 //   } else {
 //     console.log("tweet length", data.length);
 //     res.json({"error": "no tweet data is found."});
-//   }  
+//   }
 // });
 
 
