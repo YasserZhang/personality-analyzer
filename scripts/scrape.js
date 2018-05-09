@@ -14,7 +14,7 @@ As a result, the API scrape the handle's tweets from the newest.
 function decrement(str) {
     let list = str.split('');
     let uniq = new Set(list);
-    if (uniq.size === 1 && uniq.has('0')){
+    if (uniq.size === 1 && uniq.has('0')) {
         throw "the argument is not a valid tweet id";
     }
     let flag = true;
@@ -40,34 +40,36 @@ const exportedMethods = {
         if (options.count) {
             limit = options.count;
         } else {
-            limit = 10;
+            limit = 3200;
         }
         let tweetData = [];
         let handle = undefined;
         let maxId = undefined;
         let newId = await handles.checkHandleByScreenName(options.screen_name);
-        console.log(options.screen_name,"Is this a new Handle? ", newId);
+        console.log(options.screen_name, "Is this a new Handle? ", newId);
         if (!newId) {
             handle = await handles.getHandleByHandle(options.screen_name);
             console.log("Since it is old handle, show me", handle);
             options.max_id = handle.max_id;
             console.log(options.max_id);
         }
-        while(tweetData.length < limit) {
+        while (tweetData.length < limit) {
             let data = await twitterClient.get('statuses/user_timeline', options)
-                            .then(result => {
-                                return result.data;
-                            }).catch(err=>console.log(err));
+                .then(result => {
+                    return result.data;
+                }).catch(err => console.log(err));
             //console.log("from scrape: ", data);
             console.log("from scrape data length", data.length);
             if (!Array.isArray(data)) {
                 console.log(data);
-                return {tweetData: [],
-                maxId: undefined}
+                return {
+                    tweetData: [],
+                    maxId: undefined
+                }
             }
             if (Array.isArray(data) && data.length === 0) break;
             let min_id = data[0].id_str;
-            for(tw of data) {
+            for (tw of data) {
                 if (min_id > tw.id_str) min_id = tw.id_str;
             }
             console.log("minimum id:", min_id);
@@ -79,8 +81,10 @@ const exportedMethods = {
             //options.count = options.count - data.length;
             //console.log(tweetData.length);
         }
-        return {tweetData: tweetData,
-                maxId: maxId};
+        return {
+            tweetData: tweetData,
+            maxId: maxId
+        };
     }
 }
 module.exports = exportedMethods;
