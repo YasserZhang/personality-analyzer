@@ -29,6 +29,7 @@ router.post('/register', async (req, res, next) => {
     const errors = req.validationErrors()
 
     if (errors) {
+        console.log(errors)
         res.render('register', { errors: errors })
     } else {
         next()
@@ -38,14 +39,16 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.post('/login', passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }), (req, res) => {
+    console.log("req.body: ", req.body)
     var email = req.body.email
+    //console.log(email)
     res.redirect('/')
 })
 
 router.get('/logout', (req, res) => {
     req.logout()
     req.flash('success_msg', 'You are logged out')
-    res.redirect('/login')
+    res.redirect('/')
 })
 
 router.get('/profile', Auth.isLoggedIn, async (req, res) => {
@@ -59,7 +62,7 @@ router.get('/profile/edit', Auth.isLoggedIn, async (req, res) => {
 router.get('/profile/changepassword', Auth.isLoggedIn, async (req, res) => {
     res.render('changepassword', {user: req.user})
 })
-router.post('/updateprofile',Auth.isLoggedIn, async (req, res) => {
+router.post('/save',Auth.isLoggedIn, async (req, res) => {
     let formUser = req.user;
     const userID = req.body.userID;
     const userName = req.body.userName;
@@ -74,39 +77,42 @@ router.post('/updateprofile',Auth.isLoggedIn, async (req, res) => {
         req.checkBody('userEmail', 'Email is not valid').isEmail()
     }
     const errors = req.validationErrors();
+   
+    // for(let e in errors){
+    //     if(errors[e].param == 'userName'){
+    //         formData.name = "";
+    //     }
+    //     if(errors[e].param == 'userEmail'){
+    //         formData.email = "";
+    //     }
+    // }
     if(errors){
         return res.render('profile-edit', { errors: errors ,formUser:formUser,user:req.user})
     }
     const usr = User.updateProfile(userID,userName,userEmail);
     if(!usr){
-        throw 'Error While Updating Profile.';
-        res.render('profile-edit');
+        throw 'something wrong';
     }
-    req.flash('success_msg', 'Your profile has been updated.')
+    req.flash('success_msg', 'Data Updated.')
     res.redirect('/profile')
 });
 router.post('/updatepassword',async(req,res)=>{
-    //console.log('function called')
-    const userID = req.body.userID;
     let ps1 = req.body.password1;
     let ps2 = req.body.password2;
     req.checkBody('ps1', 'Password is required').notEmpty();
-    req.checkBody('ps2', 'Passwords do not match').equals(req.body.password1);
-
+    req.checkBody('ps2', 'Passwords do not match').equals(req.body.password);
     const errors = req.validationErrors()
+
     if (errors) {
-        return res.render('changepassword', { errors: errors })
+        res.render('changepassword', { errors: errors })
     }
-    const usr = User.updatePassword(userID,ps1);
-    if(!usr){
-        throw 'Error While Updating Password.';
-        res.render('changepassword');
-    }
-    req.flash('success_msg', 'Your password has been changed successfully!')
-    res.redirect('/profile')
 });
 router.get('/twitter/remove', Auth.isLoggedIn, async (req, res) => {
     res.render('profile-edit', {user: req.user})
 })
+
+// router.get('/user/:id', ensureAuthenticated, (req, res) => {
+//     res.send('Profile for: ' + req.param.id)
+// })
 
 module.exports = router
