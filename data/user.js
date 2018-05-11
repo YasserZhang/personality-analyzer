@@ -80,7 +80,6 @@ let exportMethods = {
 
     async addTwitterToUser(u, t) {
         const usersCollection = await users()
-        console.log(u, t);
 
         let updatedUser = {
             has_twitter: true,
@@ -118,7 +117,7 @@ let exportMethods = {
             console.log(e);
             throw 'Password not matched'
         }
-        console.log(compare);
+        
         return compare
     },
 

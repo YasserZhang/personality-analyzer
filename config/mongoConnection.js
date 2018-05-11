@@ -1,9 +1,10 @@
 const MongoClient = require("mongodb").MongoClient;
+const dbCredentials = require("./db-credentials")
 
 const settings = {
     mongoConfig: {
-        serverUrl: "mongodb://localhost:27017/",
-        database: "ZAPDDB"
+        serverUrl: dbCredentials.serverUrl,
+        database: dbCredentials.database
     }
 };
 

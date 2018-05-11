@@ -1,3 +1,4 @@
+const dbCredentials = require("../../config/db-credentials")
 const { seedDatabase } = require('mongo-seeding');
 const path = require('path');
 
@@ -5,9 +6,9 @@ console.log("Seeding started...");
 
 const config = {
     database: {
-        host: '127.0.0.1',
-        port: 27017,
-        name: 'ZAPDDB',
+        host: dbCredentials.host,
+        port: dbCredentials.port,
+        name: dbCredentials.database,
     },
     inputPath: path.resolve(__dirname, './data'),
     dropDatabase: true,

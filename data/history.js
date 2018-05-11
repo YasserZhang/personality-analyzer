@@ -17,9 +17,6 @@ let exportedMethods = {
             insights: h.insights
         }
 
-        console.log(newHistory);
-        console.log(JSON.stringify(newHistory));
-
         const newHistoryInfo = await historyCollection.insertOne(newHistory)
         const newID = newHistoryInfo.insertedId
         return await this.getHistoryById(newID)
@@ -33,7 +30,6 @@ let exportedMethods = {
     },
     //gethistoryforUSER
     async getHistoryForUser(user_id) {
-        console.log(user_id);
         const historyCollection = await history()
         return await historyCollection.find({user_id: user_id}).toArray()
     },
