@@ -6,10 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "devstart": "nodemon app.js",
-    "seed": "node ./tasks/seed.js"
+    "seed": "node ./tasks/seed/seed.js"
   },
-  "author": "Ning Zhang",
+  "author": "ZAPD",
   "license": "glpv3",
   "dependencies": {
     "bcryptjs": "*",
@@ -22,19 +21,17 @@
     "express-session": "*",
     "express-validator": "*",
     "handlebars": "^4.0.5",
+    "mongo-seeding": "^2.0.4",
     "mongodb": "^3.0.7",
     "morgan": "^1.9.0",
     "node-uuid": "^1.4.7",
-    "nodemon": "^1.17.4",
-    "npm": "^6.0.0",
     "passport": "^0.2.2",
     "passport-local": "*",
     "passport-twitter": "^1.0.3",
     "save": "^2.3.2",
     "twit": "^1.1.18",
     "twit-promise": "^2.1.0",
-    "watson-developer-cloud": "^2.39.0",
-    "xss": "^0.3.8"
+    "watson-developer-cloud": "^2.39.0"
   },
   "devDependencies": {}
 }

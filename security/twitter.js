@@ -16,8 +16,7 @@ Twitter.init = (app, passport) => {
     app.get('/auth/twitter', passport.authenticate('twitter-login'))
     app.get('/auth/twitter/callback', passport.authenticate('twitter-login', { failureRedirect: '/login' }), (req, res) => {
         // Successful authentication, redirect home.
-        console.log("twitter/callback res",Object.keys(res.req.user.email))
-        res.redirect('/')
+        res.redirect('/profile')
     })
 }
 

@@ -24,13 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }))
 app.use(flash())
 
-app.use((req, res, next) => {
-    res.locals.success_msg = req.flash('success_msg')
-    res.locals.error_msg = req.flash('error_msg')
-    res.locals.error = req.flash('error')
-    res.locals.user = req.user || null
-    next()
-})
+// app.use((req, res, next) => {
+//     res.locals.success_msg = req.flash('success_msg')
+//     res.locals.error_msg = req.flash('error_msg')
+//     res.locals.error = req.flash('error')
+//     res.locals.user = req.user || null
+//     next()
+// })
 
 Handlebars.registerHelper("inc", (value, options) => {
     return parseInt(value) + 1;

@@ -12,9 +12,6 @@ let getCollectionFn = collection => {
 };
 
 module.exports = {
-    tweets: getCollectionFn("tweets"),
-    handles: getCollectionFn("handles"),
-    insights: getCollectionFn("personalityInsights"),
     users: getCollectionFn("users"),
     history: getCollectionFn("history")
 };

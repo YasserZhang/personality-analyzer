@@ -45,7 +45,7 @@
                     </ul>
                     {{#if user}}
                         {{#if user.name}}
-                        
+
                             <span class="navbar-text"><div id='profileName'>Hello, {{user.name}}&nbsp;&nbsp;&nbsp;<a href="/profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></div></span>
                         {{else}}
                             <span class="navbar-text"><div id='profileName'>Hello, {{user.email}}&nbsp;&nbsp;&nbsp;<a href="/profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></div></span>
@@ -87,7 +87,9 @@
                     </div>
                   {{/if}}
 
+                  <div id="ajax-error-msg" style="display: none;" class="alert alert-danger alert-dismissible fade show"></div>
                   <div class="loader" style="display: none;"></div>
+
                   {{{body}}}
 
                 </div>

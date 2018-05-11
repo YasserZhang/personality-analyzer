@@ -2,50 +2,30 @@
     <h1>My profile <small>(<a href="/profile/changepassword">Change Password</a>)</small></h1>
 </div>
 
-<form method="post" action="/updateprofile">
+<div class="row">
+    <div class="col-md-12" >
+        <form method="post" action="/updateprofile">
 
- <!--<div class="form-group row">
-    <label class="col-sm-2 col-form-label">ID</label>
-    <div class="col-sm-10">
-     
-    </div>
-  </div> -->
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="hidden" readonly class="form-control-plaintext"  name='userID' value={{user._id}}>
+              <input type="text"  class="form-control" name='userName' value={{user.name}}>
+            </div>
+          </div>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Name</label>
-    <div class="col-sm-10">
-      <input type="hidden" readonly class="form-control-plaintext"  name='userID' value={{user._id}}>
-      <input type="text"  class="form-control" name='userName' value={{user.name}}>
-    </div>
-  </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name='userEmail'  value={{formUser.email}}>
+            </div>
+          </div>
 
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name='userEmail'  value={{formUser.email}}>
-    </div>
-  </div>
+          <div id='btns'>
+              <a href="/profile" id="edit" name="edit" class="btn btn-secondary">Cancel</a>
+              <button id="edit" name="edit" class="btn btn-primary">Save</button>
+          </div>
 
-  {{#if formUser.has_twitter}}
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Twitter</label>
-    <div class="col-sm-10">
-       <a href="/twitter/remove" class="btn btn-primary">
-        <i class="fa fa-twitter"></i> Un-link Twitter</a>
+        </form>
     </div>
-  </div>
-  {{else}}
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Twitter</label>
-    <div class="col-sm-10">
-       <a href="/auth/twitter" class="btn btn-primary">
-        <i class="fa fa-twitter"></i> Link Twitter</a>
-    </div>
-  </div>
-  {{/if}}
-  <div id='btns'>
-      <a href="/profile" id="edit" name="edit" class="btn btn-secondary">Cancel</a>
-      <button id="edit" name="edit" class="btn btn-primary">Save</button>
-  </div>
-  
-</form>
+</div>

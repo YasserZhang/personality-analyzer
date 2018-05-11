@@ -2,6 +2,7 @@ $(() => {
     var tweetForm = $("#new-tweet-form");
     var newUserHandleInput = $("#userHandle");
     var loader = $(".loader")
+    var errorMsg = $("#ajax-error-msg")
     var analyzeButton = $("#analyze-button")
 
     loader.hide()
@@ -24,12 +25,20 @@ $(() => {
         }
 
         loader.show()
+        errorMsg.hide()
         analyzeButton.prop("disabled", true)
 
-        $.ajax(requestConfig).then(function(responseMessage) {
+        $.ajax(requestConfig).then((d) => {
             loader.hide()
             analyzeButton.prop("disabled", false)
-            createViz(responseMessage)
+            console.log(d);
+            if (d == undefined) {
+                errorMsg.html('Error while retrieving insights, the Twitter handle might not exist or the language is not supported by Watson. Please try again or try different Twitter handle.')
+                loader.hide()
+                errorMsg.show()
+            } else {
+                createViz(d)
+            }
         });
     });
 });
@@ -58,7 +67,7 @@ function createViz(d) {
     var viz = $("#viz")
     var title = $("#viz-title")
     var button = $("#flag-button")
-    
+
     title.text('Personality Insights for @' + d.target_handle)
 
     var ctx = document.getElementById("myChart").getContext('2d');

@@ -94,6 +94,21 @@ let exportMethods = {
         return await this.getUserById(u._id);
     },
 
+    async removeTwitterFromUser(u) {
+        const usersCollection = await users()
+
+        let updatedUser = {
+            has_twitter: false,
+            twitter_token: null,
+            twitter_secret: null
+        }
+
+        let updateCommand = { $set: updatedUser }
+        const query = { _id: u._id }
+        await usersCollection.updateOne(query, updateCommand);
+        return await this.getUserById(u._id);
+    },
+
     async comparePassword(candidatePassword, hash) {
         let compare = false
 
@@ -106,6 +121,7 @@ let exportMethods = {
         console.log(compare);
         return compare
     },
+
     async updateProfile(id, name, email) {
         const usersCollection = await users()
         const user = await usersCollection.findOne({ _id: id })
@@ -113,20 +129,24 @@ let exportMethods = {
         if (!user) {
             throw 'NOT_FOUND'
         }
+
         const query = { _id: id }
         var newvalues = { $set: { name: name, email: email } };
         await usersCollection.updateOne(query, newvalues);
         return await this.getUserById(id);
     },
+
     async updatePassword(id, password) {
         const usersCollection = await users()
         const user = await usersCollection.findOne({ _id: id })
+
         if (!user) {
             throw 'NOT_FOUND'
         }
+
         const query = { _id: id };
         const hashPassword = await bcrypt.hash(password, 10);
-        var newPassword = { $set: { password: hashPassword } };
+        var newPassword = { $set: { password: hashPassword, is_local: true } };
         await usersCollection.updateOne(query, newPassword);
         return await this.getUserById(id);
     }

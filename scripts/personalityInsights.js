@@ -41,9 +41,7 @@ const getProfile = (params) =>
 });
 
 const getInsight = async (tweets) => {
-    console.log("tweet length:", tweets.length);
     content_items = tweets.map(toContentItem);
-
     params = {content_items: content_items};
     return getProfile(params);
 };
@@ -59,21 +57,3 @@ module.exports = {
     getInsight: getInsight,
     testT: testT
 };
-  
-/*
-personalityInsights.profile(params, function(error, response) {
-    if (error) {
-      console.log('error:', error);
-    }
-    else {
-      fs.writeFile('response.json', JSON.stringify(response, null, 2), 'utf8', function(err, data){
-          if (err) {
-              console.log(err);
-          }
-          else{
-              return data;
-          }
-      }); // write it back 
-    }
-});
-*/

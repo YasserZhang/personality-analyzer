@@ -3,13 +3,11 @@ const User = require('../data/user')
 let Local = {}
 
 Local.init = (app, passport) => {
-    passport.use('local-signup', new LocalStrategy({usernameField : 'email', passwordField : 'password'}, localSignup))
-    passport.use('local-login', new LocalStrategy({usernameField : 'email', passwordField : 'password'}, localLogin))
+    passport.use('local-signup', new LocalStrategy({passReqToCallback: true, usernameField : 'email', passwordField : 'password'}, localSignup))
+    passport.use('local-login', new LocalStrategy({passReqToCallback: true, usernameField : 'email', passwordField : 'password'}, localLogin))
 }
 
-const localSignup = async (email, password, cb) => {
-    console.log('localSignup email:', email, 'password:', password)
-
+const localSignup = async (req, email, password, cb) => {
     let isExists = await User.getUserByEmail(email)
 
     if (!isExists) {
@@ -21,28 +19,21 @@ const localSignup = async (email, password, cb) => {
 
         let newUser = await User.createUserLocal(user)
         return cb(null, newUser)
-        // req.flash('success_msg', 'You are registered and can now login')
-        // next()
-        //res.redirect('/login')
     } else {
         if (isExists.is_local) {
             console.log(">>>> User already register and local");
-            return cb(null, false, { message: 'User already register. Please login.' })
-            res.render('register', {error_msg: 'User already register. Please login.', email: email})
+            return cb(null, false, req.flash('error_msg', 'User already register. Please login.' ))
         } else if (isExists.has_twitter) {
             console.log(">>>> User already register using Twitter");
-            return cb(null, false, { message: 'User already register using Twitter. Please login using Twitter and add a password from the settings.' })
-            res.render('register', {error_msg: 'User already register using Twitter. Please login using Twitter and add a password from the settings.', email: email})
+            return cb(null, false, req.flash('error_msg', 'User already register using Twitter. Please login using Twitter and add a password from the settings.' ))
         } else {
             console.log(">>>> Error registering new user!");
-            return cb(null, false, { message: 'Error registering new user!' })
-            res.render('register', {error_msg: 'Error registering new user!', email: email})
+            return cb(null, false, req.flash('error_msg', 'Error registering new user!' ))
         }
     }
 }
 
-const localLogin = async (email, password, cb) => {
-    console.log('localLogin email:', email, 'password:', password)
+const localLogin = async (req, email, password, cb) => {
     let user = await User.getUserByEmail(email)
 
     if (user) {
@@ -50,7 +41,8 @@ const localLogin = async (email, password, cb) => {
         if (isMatch) return cb(null, user)
     }
 
-    return cb(null, false, { message: 'You have entered an invalid email or password' })
+    console.log('You have entered an invalid email or password');
+    return cb(null, false, req.flash('error_msg', 'You have entered an invalid email or password'))
 }
 
 module.exports = Local

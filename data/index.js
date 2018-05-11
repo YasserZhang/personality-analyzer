@@ -1,10 +1,7 @@
-const handleData = require("./handles")
-const tweetData = require("./tweets")
-const insightData = require("./insights")
+const userData = require("./user")
 const historyData = require("./history")
+
 module.exports = {
-    handles: handleData,
-    tweets: tweetData,
-    insights: insightData,
+    users: userData,
     history: historyData
-};
+}
