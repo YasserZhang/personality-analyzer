@@ -67,7 +67,7 @@ router.get('/profile/changepassword', Auth.isLoggedIn, async(req, res) => {
 
 router.post('/updateprofile', Auth.isLoggedIn, async(req, res) => {
     let formUser = req.user;
-    const userID = req.body.userID;
+    const userID = req.user._id;
     const userName = req.body.userName;
     const userEmail = req.body.userEmail;
 
