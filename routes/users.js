@@ -11,7 +11,8 @@ router.get('/register', Auth.isPublic, (req, res) => {
 
 router.get('/login', Auth.isPublic, (req, res) => {
     let e = req.flash('error_msg')[0]
-    res.render('login', {error_msg: e})
+    let email = req.flash('formemail')[0]
+    res.render('login', {error_msg: e, email: email})
 })
 
 router.post('/register', async(req, res, next) => {
@@ -35,11 +36,11 @@ router.post('/register', async(req, res, next) => {
     } else {
         next()
     }
-}, passport.authenticate('local-signup', { successRedirect: '/', failureRedirect: '/register' }), (req, res) => {
+}, passport.authenticate('local-signup', { successRedirect: '/profile', failureRedirect: '/register' }), (req, res) => {
     res.redirect('/')
 })
 
-router.post('/login', passport.authenticate('local-login', { successRedirect: '/', failureRedirect: '/login'}), (req, res) => {
+router.post('/login', passport.authenticate('local-login', { successRedirect: '/profile', failureRedirect: '/login'}), (req, res) => {
     console.log("req.body: ", req.body)
     var email = req.body.email
     res.redirect('/profile')

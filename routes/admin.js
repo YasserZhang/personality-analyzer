@@ -7,7 +7,6 @@ const Auth = require('../security/auth')
 router.get('/', Auth.isLoggedIn, async (req, res) => {
     let flagged = await historyData.flaggedHistory()
     let unFlagged = await historyData.unflaggedHistory()
-    console.log(flagged);
     res.render('admin', {user:req.user, flagged: flagged.reverse(), unFlagged: unFlagged.reverse()})
 })
 

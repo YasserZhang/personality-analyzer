@@ -42,6 +42,7 @@ const localLogin = async (req, email, password, cb) => {
     }
 
     console.log('You have entered an invalid email or password');
+    req.flash('formemail', email)
     return cb(null, false, req.flash('error_msg', 'You have entered an invalid email or password'))
 }
 

@@ -24,6 +24,7 @@
     "mongo-seeding": "^2.0.4",
     "mongodb": "^3.0.7",
     "morgan": "^1.9.0",
+    "node-mongo-seeds": "^3.0.1",
     "node-uuid": "^1.4.7",
     "passport": "^0.2.2",
     "passport-local": "*",

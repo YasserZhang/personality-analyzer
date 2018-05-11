@@ -14,7 +14,6 @@ let exportedMethods = {
             target_handle: h.target_handle,
             created_At: new Date(),
             is_flagged: false,
-            tweets: h.tweets,
             insights: h.insights
         }
 

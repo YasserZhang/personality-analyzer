@@ -1,0 +1,35 @@
+[
+    {
+        "_id": "0e5bf7fd-fc12-41f2-8e9e-0f32097f351c",
+        "name": "Admin",
+        "email": "admin@email.com",
+        "password": "$2a$10$dLgr01ZIlhAZ7iJbxrjtyu/K.wmGAk/F3adXe0elAG2eIJQLphRka",
+        "is_admin": true,
+        "has_twitter": false,
+        "is_local": true,
+        "twitter_token": null,
+        "twitter_secret": null
+    },
+    {
+        "_id": "60c813f5-df96-4a55-9f24-e5874483f65c",
+        "name": null,
+        "email": "u1@email.com",
+        "password": "$2a$10$tSYubPojim7gIeTIuOu0eeQr47GPpLjTzXedNSc7.lNs0Z8Ix7NhS",
+        "is_admin": false,
+        "has_twitter": false,
+        "is_local": true,
+        "twitter_token": null,
+        "twitter_secret": null
+    },
+    {
+        "_id": "5fb125ed-298f-4300-8bcd-a10c722c9aee",
+        "name": "User 2",
+        "email": "u2@email.com",
+        "password": "$2a$10$rS7BErPdjhaV6N6Znzip3eecFKZSiA45rqCdrHFObhROR8fLL1ztC",
+        "is_admin": false,
+        "has_twitter": true,
+        "is_local": true,
+        "twitter_token": "19107187-3xLernyLiWAsH8pIY2FjQiE4vy6NcSlId35gWD4IO",
+        "twitter_secret": "yPqsJodKSAvuBJRjsPWDXjUYirYAMrmGB3WCWwDdHPcvA"
+    }
+]

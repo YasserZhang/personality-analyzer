@@ -31,7 +31,6 @@ $(() => {
         $.ajax(requestConfig).then((d) => {
             loader.hide()
             analyzeButton.prop("disabled", false)
-            console.log(d);
             if (d == undefined) {
                 errorMsg.html('Error while retrieving insights, the Twitter handle might not exist or the language is not supported by Watson. Please try again or try different Twitter handle.')
                 loader.hide()
@@ -46,7 +45,6 @@ $(() => {
 function createHistoryViz(id) {
     var loader = $(".loader")
     loader.show()
-    console.log(id);
 
     var requestConfig = {
         method: "GET",
@@ -56,14 +54,11 @@ function createHistoryViz(id) {
 
     $.get("/history/" + id).then(function(d) {
         loader.hide()
-        console.log(d);
         createViz(d)
     });
 }
 
 function createViz(d) {
-    console.log("Starting Viz...");
-    console.log(d);
     var viz = $("#viz")
     var title = $("#viz-title")
     var button = $("#flag-button")

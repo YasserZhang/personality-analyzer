@@ -1,0 +1,2806 @@
+[
+    {
+        "_id": "8e9556ee-9183-4625-8e98-3a6bac161904",
+        "user_id": "60c813f5-df96-4a55-9f24-e5874483f65c",
+        "user_name": "User 1",
+        "target_handle": "BarackObama",
+        "created_At": {
+            "$date": {
+                "$numberLong": "1526019173723"
+            }
+        },
+        "is_flagged": false,
+        "insights": {
+            "word_count": {
+                "$numberInt": "17020"
+            },
+            "processed_language": "en",
+            "personality": [
+                {
+                    "trait_id": "big5_openness",
+                    "name": "Openness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.8690771783616063"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_adventurousness",
+                            "name": "Adventurousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8684935598790129"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_artistic_interests",
+                            "name": "Artistic interests",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8235257402458771"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_emotionality",
+                            "name": "Emotionality",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5434569813867738"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_imagination",
+                            "name": "Imagination",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.19024361468373463"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_intellect",
+                            "name": "Intellect",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8980925120945749"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_liberalism",
+                            "name": "Authority-challenging",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6002165622837132"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_conscientiousness",
+                    "name": "Conscientiousness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.9818440370278531"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_achievement_striving",
+                            "name": "Achievement striving",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9763596897445457"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cautiousness",
+                            "name": "Cautiousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9635658684428439"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_dutifulness",
+                            "name": "Dutifulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9083707393214593"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_orderliness",
+                            "name": "Orderliness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7502329940441052"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_discipline",
+                            "name": "Self-discipline",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9582501037598872"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_efficacy",
+                            "name": "Self-efficacy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9517318416503893"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_extraversion",
+                    "name": "Extraversion",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.712302615555937"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_activity_level",
+                            "name": "Activity level",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.972364234073834"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_assertiveness",
+                            "name": "Assertiveness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9937328084012429"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cheerfulness",
+                            "name": "Cheerfulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6848183479376274"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_excitement_seeking",
+                            "name": "Excitement-seeking",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.1832911252896992"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_friendliness",
+                            "name": "Outgoing",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9401499961237427"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_gregariousness",
+                            "name": "Gregariousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6554744673499158"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_agreeableness",
+                    "name": "Agreeableness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.7159440753433989"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_altruism",
+                            "name": "Altruism",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9871202054208807"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cooperation",
+                            "name": "Cooperation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7397592797093312"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_modesty",
+                            "name": "Modesty",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.3914813587475431"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_morality",
+                            "name": "Uncompromising",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9302526285423169"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_sympathy",
+                            "name": "Sympathy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9955148617437528"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_trust",
+                            "name": "Trust",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.87717495607405"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_neuroticism",
+                    "name": "Emotional range",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.9312268947197326"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_anger",
+                            "name": "Fiery",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.0217692766795321"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_anxiety",
+                            "name": "Prone to worry",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.036851956212750614"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_depression",
+                            "name": "Melancholy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.0345399606576165"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_immoderation",
+                            "name": "Immoderation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.015547075383833542"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_consciousness",
+                            "name": "Self-consciousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.02748147810256668"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_vulnerability",
+                            "name": "Susceptible to stress",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.02195663809974746"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "needs": [
+                {
+                    "trait_id": "need_challenge",
+                    "name": "Challenge",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.20466654004525292"
+                    }
+                },
+                {
+                    "trait_id": "need_closeness",
+                    "name": "Closeness",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.3061705732938938"
+                    }
+                },
+                {
+                    "trait_id": "need_curiosity",
+                    "name": "Curiosity",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.49883481813581687"
+                    }
+                },
+                {
+                    "trait_id": "need_excitement",
+                    "name": "Excitement",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.08325756463544615"
+                    }
+                },
+                {
+                    "trait_id": "need_harmony",
+                    "name": "Harmony",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.37367223264432653"
+                    }
+                },
+                {
+                    "trait_id": "need_ideal",
+                    "name": "Ideal",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.11972118841487323"
+                    }
+                },
+                {
+                    "trait_id": "need_liberty",
+                    "name": "Liberty",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.12836068868543993"
+                    }
+                },
+                {
+                    "trait_id": "need_love",
+                    "name": "Love",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.08524325648573977"
+                    }
+                },
+                {
+                    "trait_id": "need_practicality",
+                    "name": "Practicality",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.06435242704715055"
+                    }
+                },
+                {
+                    "trait_id": "need_self_expression",
+                    "name": "Self-expression",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.21672956006183108"
+                    }
+                },
+                {
+                    "trait_id": "need_stability",
+                    "name": "Stability",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.6310082496169946"
+                    }
+                },
+                {
+                    "trait_id": "need_structure",
+                    "name": "Structure",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.8003569844053906"
+                    }
+                }
+            ],
+            "values": [
+                {
+                    "trait_id": "value_conservation",
+                    "name": "Conservation",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.6711272964287027"
+                    }
+                },
+                {
+                    "trait_id": "value_openness_to_change",
+                    "name": "Openness to change",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.3597519731445593"
+                    }
+                },
+                {
+                    "trait_id": "value_hedonism",
+                    "name": "Hedonism",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.044512478952402124"
+                    }
+                },
+                {
+                    "trait_id": "value_self_enhancement",
+                    "name": "Self-enhancement",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.02117919977480054"
+                    }
+                },
+                {
+                    "trait_id": "value_self_transcendence",
+                    "name": "Self-transcendence",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.2836035633767677"
+                    }
+                }
+            ],
+            "behavior": [
+                {
+                    "trait_id": "behavior_sunday",
+                    "name": "Sunday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                },
+                {
+                    "trait_id": "behavior_monday",
+                    "name": "Monday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.22"
+                    }
+                },
+                {
+                    "trait_id": "behavior_tuesday",
+                    "name": "Tuesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.15"
+                    }
+                },
+                {
+                    "trait_id": "behavior_wednesday",
+                    "name": "Wednesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.2"
+                    }
+                },
+                {
+                    "trait_id": "behavior_thursday",
+                    "name": "Thursday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.18"
+                    }
+                },
+                {
+                    "trait_id": "behavior_friday",
+                    "name": "Friday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.155"
+                    }
+                },
+                {
+                    "trait_id": "behavior_saturday",
+                    "name": "Saturday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.035"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0000",
+                    "name": "0:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0100",
+                    "name": "1:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.005"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0200",
+                    "name": "2:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.015"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0300",
+                    "name": "3:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0400",
+                    "name": "4:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0500",
+                    "name": "5:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0600",
+                    "name": "6:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0700",
+                    "name": "7:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0800",
+                    "name": "8:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0900",
+                    "name": "9:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1000",
+                    "name": "10:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1100",
+                    "name": "11:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.005"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1200",
+                    "name": "12:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.005"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1300",
+                    "name": "1:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.03"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1400",
+                    "name": "2:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.04"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1500",
+                    "name": "3:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.16"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1600",
+                    "name": "4:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.14"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1700",
+                    "name": "5:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.09"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1800",
+                    "name": "6:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.095"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1900",
+                    "name": "7:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.085"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2000",
+                    "name": "8:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.085"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2100",
+                    "name": "9:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.095"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2200",
+                    "name": "10:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2300",
+                    "name": "11:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.03"
+                    }
+                }
+            ],
+            "warnings": []
+        }
+    },
+    {
+        "_id": "d71931ad-0f36-4ec5-897c-1fbb9feb0b8e",
+        "user_id": "60c813f5-df96-4a55-9f24-e5874483f65c",
+        "user_name": "User 1",
+        "target_handle": "trump",
+        "created_At": {
+            "$date": {
+                "$numberLong": "1526019186863"
+            }
+        },
+        "is_flagged": true,
+        "insights": {
+            "word_count": {
+                "$numberInt": "14440"
+            },
+            "processed_language": "en",
+            "personality": [
+                {
+                    "trait_id": "big5_openness",
+                    "name": "Openness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.8343068473414563"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_adventurousness",
+                            "name": "Adventurousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8296429023275464"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_artistic_interests",
+                            "name": "Artistic interests",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8400369148450784"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_emotionality",
+                            "name": "Emotionality",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.4768918909159791"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_imagination",
+                            "name": "Imagination",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.3327415924537924"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_intellect",
+                            "name": "Intellect",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7820362472153986"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_liberalism",
+                            "name": "Authority-challenging",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5863385924096155"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_conscientiousness",
+                    "name": "Conscientiousness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.8946781100142683"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_achievement_striving",
+                            "name": "Achievement striving",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9407418389036029"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cautiousness",
+                            "name": "Cautiousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7537412360397273"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_dutifulness",
+                            "name": "Dutifulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8053575824681962"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_orderliness",
+                            "name": "Orderliness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6859837426486683"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_discipline",
+                            "name": "Self-discipline",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7285346256525275"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_efficacy",
+                            "name": "Self-efficacy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8869300000778974"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_extraversion",
+                    "name": "Extraversion",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.7005254522322284"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_activity_level",
+                            "name": "Activity level",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9570084610227069"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_assertiveness",
+                            "name": "Assertiveness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8880091219611318"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cheerfulness",
+                            "name": "Cheerfulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6795128139980027"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_excitement_seeking",
+                            "name": "Excitement-seeking",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.4817954678267007"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_friendliness",
+                            "name": "Outgoing",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8289232276900316"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_gregariousness",
+                            "name": "Gregariousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.714623581455607"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_agreeableness",
+                    "name": "Agreeableness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.2187798241933368"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_altruism",
+                            "name": "Altruism",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9486781540710172"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cooperation",
+                            "name": "Cooperation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9168134621739932"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_modesty",
+                            "name": "Modesty",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.38886897006907994"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_morality",
+                            "name": "Uncompromising",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6324913292411378"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_sympathy",
+                            "name": "Sympathy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7553102379258642"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_trust",
+                            "name": "Trust",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9893048979146957"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_neuroticism",
+                    "name": "Emotional range",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.9014317251412246"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_anger",
+                            "name": "Fiery",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.03777616176923693"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_anxiety",
+                            "name": "Prone to worry",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.1832982772619154"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_depression",
+                            "name": "Melancholy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.12089615037340012"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_immoderation",
+                            "name": "Immoderation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.19738571522661347"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_consciousness",
+                            "name": "Self-consciousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.03207084341931549"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_vulnerability",
+                            "name": "Susceptible to stress",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.18032478188487017"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "needs": [
+                {
+                    "trait_id": "need_challenge",
+                    "name": "Challenge",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.13266095458724347"
+                    }
+                },
+                {
+                    "trait_id": "need_closeness",
+                    "name": "Closeness",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.2748677994425728"
+                    }
+                },
+                {
+                    "trait_id": "need_curiosity",
+                    "name": "Curiosity",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.1375850909101315"
+                    }
+                },
+                {
+                    "trait_id": "need_excitement",
+                    "name": "Excitement",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.32592131141126296"
+                    }
+                },
+                {
+                    "trait_id": "need_harmony",
+                    "name": "Harmony",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.16639809037808517"
+                    }
+                },
+                {
+                    "trait_id": "need_ideal",
+                    "name": "Ideal",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.10128047464110546"
+                    }
+                },
+                {
+                    "trait_id": "need_liberty",
+                    "name": "Liberty",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.1535314806862484"
+                    }
+                },
+                {
+                    "trait_id": "need_love",
+                    "name": "Love",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.22589583825355009"
+                    }
+                },
+                {
+                    "trait_id": "need_practicality",
+                    "name": "Practicality",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.055473871370460115"
+                    }
+                },
+                {
+                    "trait_id": "need_self_expression",
+                    "name": "Self-expression",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.08625883834541692"
+                    }
+                },
+                {
+                    "trait_id": "need_stability",
+                    "name": "Stability",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.4681176338283346"
+                    }
+                },
+                {
+                    "trait_id": "need_structure",
+                    "name": "Structure",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.42273934440384453"
+                    }
+                }
+            ],
+            "values": [
+                {
+                    "trait_id": "value_conservation",
+                    "name": "Conservation",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.23630324814819592"
+                    }
+                },
+                {
+                    "trait_id": "value_openness_to_change",
+                    "name": "Openness to change",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.5339074896663618"
+                    }
+                },
+                {
+                    "trait_id": "value_hedonism",
+                    "name": "Hedonism",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.043148734820496026"
+                    }
+                },
+                {
+                    "trait_id": "value_self_enhancement",
+                    "name": "Self-enhancement",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.31490613008709034"
+                    }
+                },
+                {
+                    "trait_id": "value_self_transcendence",
+                    "name": "Self-transcendence",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.13267603814728007"
+                    }
+                }
+            ],
+            "behavior": [
+                {
+                    "trait_id": "behavior_sunday",
+                    "name": "Sunday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.015"
+                    }
+                },
+                {
+                    "trait_id": "behavior_monday",
+                    "name": "Monday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.215"
+                    }
+                },
+                {
+                    "trait_id": "behavior_tuesday",
+                    "name": "Tuesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.23"
+                    }
+                },
+                {
+                    "trait_id": "behavior_wednesday",
+                    "name": "Wednesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.18"
+                    }
+                },
+                {
+                    "trait_id": "behavior_thursday",
+                    "name": "Thursday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.22"
+                    }
+                },
+                {
+                    "trait_id": "behavior_friday",
+                    "name": "Friday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.13"
+                    }
+                },
+                {
+                    "trait_id": "behavior_saturday",
+                    "name": "Saturday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.01"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0000",
+                    "name": "0:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0100",
+                    "name": "1:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.01"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0200",
+                    "name": "2:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0300",
+                    "name": "3:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0400",
+                    "name": "4:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0500",
+                    "name": "5:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0600",
+                    "name": "6:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0700",
+                    "name": "7:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0800",
+                    "name": "8:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0900",
+                    "name": "9:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1000",
+                    "name": "10:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1100",
+                    "name": "11:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1200",
+                    "name": "12:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.02"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1300",
+                    "name": "1:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.09"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1400",
+                    "name": "2:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.21"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1500",
+                    "name": "3:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.155"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1600",
+                    "name": "4:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1700",
+                    "name": "5:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.095"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1800",
+                    "name": "6:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.055"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1900",
+                    "name": "7:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.1"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2000",
+                    "name": "8:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.09"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2100",
+                    "name": "9:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.07"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2200",
+                    "name": "10:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.035"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2300",
+                    "name": "11:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.01"
+                    }
+                }
+            ],
+            "warnings": []
+        }
+    },
+    {
+        "_id": "ccd2d1cd-bb4a-4f78-911b-140d5531dc44",
+        "user_id": "5fb125ed-298f-4300-8bcd-a10c722c9aee",
+        "user_name": "User 2",
+        "target_handle": "potus",
+        "created_At": {
+            "$date": {
+                "$numberLong": "1526019438426"
+            }
+        },
+        "is_flagged": true,
+        "insights": {
+            "word_count": {
+                "$numberInt": "19935"
+            },
+            "processed_language": "en",
+            "personality": [
+                {
+                    "trait_id": "big5_openness",
+                    "name": "Openness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.7918797554168411"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_adventurousness",
+                            "name": "Adventurousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9203721154125815"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_artistic_interests",
+                            "name": "Artistic interests",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7426573555567434"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_emotionality",
+                            "name": "Emotionality",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.2791076792163509"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_imagination",
+                            "name": "Imagination",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.22255852954786542"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_intellect",
+                            "name": "Intellect",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8495756476046654"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_liberalism",
+                            "name": "Authority-challenging",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.4562685742134747"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_conscientiousness",
+                    "name": "Conscientiousness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.9966886346813351"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_achievement_striving",
+                            "name": "Achievement striving",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.982169751143887"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cautiousness",
+                            "name": "Cautiousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9287168680923295"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_dutifulness",
+                            "name": "Dutifulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9184976346125096"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_orderliness",
+                            "name": "Orderliness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8123537497061832"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_discipline",
+                            "name": "Self-discipline",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9811250223375649"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_efficacy",
+                            "name": "Self-efficacy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9760925139705643"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_extraversion",
+                    "name": "Extraversion",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.6261023843142296"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_activity_level",
+                            "name": "Activity level",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8926512629764751"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_assertiveness",
+                            "name": "Assertiveness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9900305166683994"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cheerfulness",
+                            "name": "Cheerfulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5159602043955133"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_excitement_seeking",
+                            "name": "Excitement-seeking",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.28147663578393334"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_friendliness",
+                            "name": "Outgoing",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8492576607989021"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_gregariousness",
+                            "name": "Gregariousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.3987287434954051"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_agreeableness",
+                    "name": "Agreeableness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.850792424083508"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_altruism",
+                            "name": "Altruism",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.954164068228684"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cooperation",
+                            "name": "Cooperation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6100809032605594"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_modesty",
+                            "name": "Modesty",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.24520616991529243"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_morality",
+                            "name": "Uncompromising",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6399541344725111"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_sympathy",
+                            "name": "Sympathy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9793486346858606"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_trust",
+                            "name": "Trust",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9192767301041389"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_neuroticism",
+                    "name": "Emotional range",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.9557094121156067"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_anger",
+                            "name": "Fiery",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.11353320820702029"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_anxiety",
+                            "name": "Prone to worry",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.10207315846813886"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_depression",
+                            "name": "Melancholy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.0351975866366071"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_immoderation",
+                            "name": "Immoderation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.014041420945317351"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_consciousness",
+                            "name": "Self-consciousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.04814650317372071"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_vulnerability",
+                            "name": "Susceptible to stress",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.020282836792637482"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "needs": [
+                {
+                    "trait_id": "need_challenge",
+                    "name": "Challenge",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.30149825931503005"
+                    }
+                },
+                {
+                    "trait_id": "need_closeness",
+                    "name": "Closeness",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.3976765771361024"
+                    }
+                },
+                {
+                    "trait_id": "need_curiosity",
+                    "name": "Curiosity",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.2832087961086648"
+                    }
+                },
+                {
+                    "trait_id": "need_excitement",
+                    "name": "Excitement",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.10787024781819043"
+                    }
+                },
+                {
+                    "trait_id": "need_harmony",
+                    "name": "Harmony",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.42858940675824975"
+                    }
+                },
+                {
+                    "trait_id": "need_ideal",
+                    "name": "Ideal",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.18296720775442127"
+                    }
+                },
+                {
+                    "trait_id": "need_liberty",
+                    "name": "Liberty",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.041295078546023545"
+                    }
+                },
+                {
+                    "trait_id": "need_love",
+                    "name": "Love",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.14642912134590502"
+                    }
+                },
+                {
+                    "trait_id": "need_practicality",
+                    "name": "Practicality",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.09414461771796906"
+                    }
+                },
+                {
+                    "trait_id": "need_self_expression",
+                    "name": "Self-expression",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.12682969202626798"
+                    }
+                },
+                {
+                    "trait_id": "need_stability",
+                    "name": "Stability",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.8775023532809931"
+                    }
+                },
+                {
+                    "trait_id": "need_structure",
+                    "name": "Structure",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.9713594533533669"
+                    }
+                }
+            ],
+            "values": [
+                {
+                    "trait_id": "value_conservation",
+                    "name": "Conservation",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.7651694051907912"
+                    }
+                },
+                {
+                    "trait_id": "value_openness_to_change",
+                    "name": "Openness to change",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.222843080969013"
+                    }
+                },
+                {
+                    "trait_id": "value_hedonism",
+                    "name": "Hedonism",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.1220414817156511"
+                    }
+                },
+                {
+                    "trait_id": "value_self_enhancement",
+                    "name": "Self-enhancement",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.10655344764042318"
+                    }
+                },
+                {
+                    "trait_id": "value_self_transcendence",
+                    "name": "Self-transcendence",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.06904142798391477"
+                    }
+                }
+            ],
+            "behavior": [
+                {
+                    "trait_id": "behavior_sunday",
+                    "name": "Sunday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.065"
+                    }
+                },
+                {
+                    "trait_id": "behavior_monday",
+                    "name": "Monday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.045"
+                    }
+                },
+                {
+                    "trait_id": "behavior_tuesday",
+                    "name": "Tuesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.18"
+                    }
+                },
+                {
+                    "trait_id": "behavior_wednesday",
+                    "name": "Wednesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.245"
+                    }
+                },
+                {
+                    "trait_id": "behavior_thursday",
+                    "name": "Thursday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.27"
+                    }
+                },
+                {
+                    "trait_id": "behavior_friday",
+                    "name": "Friday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.11"
+                    }
+                },
+                {
+                    "trait_id": "behavior_saturday",
+                    "name": "Saturday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.085"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0000",
+                    "name": "0:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0100",
+                    "name": "1:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.07"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0200",
+                    "name": "2:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.015"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0300",
+                    "name": "3:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.005"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0400",
+                    "name": "4:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.01"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0500",
+                    "name": "5:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.005"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0600",
+                    "name": "6:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0700",
+                    "name": "7:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0800",
+                    "name": "8:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0900",
+                    "name": "9:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1000",
+                    "name": "10:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.005"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1100",
+                    "name": "11:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1200",
+                    "name": "12:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1300",
+                    "name": "1:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.015"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1400",
+                    "name": "2:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.09"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1500",
+                    "name": "3:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.13"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1600",
+                    "name": "4:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.105"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1700",
+                    "name": "5:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.08"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1800",
+                    "name": "6:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.13"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1900",
+                    "name": "7:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.05"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2000",
+                    "name": "8:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.115"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2100",
+                    "name": "9:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.055"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2200",
+                    "name": "10:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.05"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2300",
+                    "name": "11:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.01"
+                    }
+                }
+            ],
+            "warnings": []
+        }
+    },
+    {
+        "_id": "f7a1b1c4-b71d-4952-a15c-4d04152af135",
+        "user_id": "5fb125ed-298f-4300-8bcd-a10c722c9aee",
+        "user_name": "User 2",
+        "target_handle": "stevensducks",
+        "created_At": {
+            "$date": {
+                "$numberLong": "1526019447145"
+            }
+        },
+        "is_flagged": false,
+        "insights": {
+            "word_count": {
+                "$numberInt": "14715"
+            },
+            "processed_language": "en",
+            "personality": [
+                {
+                    "trait_id": "big5_openness",
+                    "name": "Openness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.4092952412498815"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_adventurousness",
+                            "name": "Adventurousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.41919475425365577"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_artistic_interests",
+                            "name": "Artistic interests",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.047229554642424953"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_emotionality",
+                            "name": "Emotionality",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.21238670717232244"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_imagination",
+                            "name": "Imagination",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.22970745749461152"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_intellect",
+                            "name": "Intellect",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5928824104621785"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_liberalism",
+                            "name": "Authority-challenging",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5709410743937684"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_conscientiousness",
+                    "name": "Conscientiousness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.7893816902919558"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_achievement_striving",
+                            "name": "Achievement striving",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.863598804213602"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cautiousness",
+                            "name": "Cautiousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8092728179098758"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_dutifulness",
+                            "name": "Dutifulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6506237655892854"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_orderliness",
+                            "name": "Orderliness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.4071353595584314"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_discipline",
+                            "name": "Self-discipline",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.4492468785424486"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_efficacy",
+                            "name": "Self-efficacy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8664553688235859"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_extraversion",
+                    "name": "Extraversion",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.43204010801212006"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_activity_level",
+                            "name": "Activity level",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7169182416764527"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_assertiveness",
+                            "name": "Assertiveness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.8751817565400066"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cheerfulness",
+                            "name": "Cheerfulness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.1009988255663723"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_excitement_seeking",
+                            "name": "Excitement-seeking",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.6402392693993246"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_friendliness",
+                            "name": "Outgoing",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.19639291797438768"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_gregariousness",
+                            "name": "Gregariousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.1351144316947967"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_agreeableness",
+                    "name": "Agreeableness",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.04041132119597651"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_altruism",
+                            "name": "Altruism",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.4409611148631096"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_cooperation",
+                            "name": "Cooperation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.228883988318775"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_modesty",
+                            "name": "Modesty",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.3721748135106798"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_morality",
+                            "name": "Uncompromising",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.19371019377418974"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_sympathy",
+                            "name": "Sympathy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.2597726069087286"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_trust",
+                            "name": "Trust",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.9468443640055481"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "trait_id": "big5_neuroticism",
+                    "name": "Emotional range",
+                    "category": "personality",
+                    "percentile": {
+                        "$numberDouble": "0.9094251588749089"
+                    },
+                    "children": [
+                        {
+                            "trait_id": "facet_anger",
+                            "name": "Fiery",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5136208874775395"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_anxiety",
+                            "name": "Prone to worry",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.3683975032561134"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_depression",
+                            "name": "Melancholy",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5561999977438229"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_immoderation",
+                            "name": "Immoderation",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.27252306362289846"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_self_consciousness",
+                            "name": "Self-consciousness",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.7098958383555268"
+                            }
+                        },
+                        {
+                            "trait_id": "facet_vulnerability",
+                            "name": "Susceptible to stress",
+                            "category": "personality",
+                            "percentile": {
+                                "$numberDouble": "0.5348372058583987"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "needs": [
+                {
+                    "trait_id": "need_challenge",
+                    "name": "Challenge",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.9094746742578316"
+                    }
+                },
+                {
+                    "trait_id": "need_closeness",
+                    "name": "Closeness",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.05321803596910368"
+                    }
+                },
+                {
+                    "trait_id": "need_curiosity",
+                    "name": "Curiosity",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.04958816587060544"
+                    }
+                },
+                {
+                    "trait_id": "need_excitement",
+                    "name": "Excitement",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.5406975367532731"
+                    }
+                },
+                {
+                    "trait_id": "need_harmony",
+                    "name": "Harmony",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.02527794411623091"
+                    }
+                },
+                {
+                    "trait_id": "need_ideal",
+                    "name": "Ideal",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.26386020204158644"
+                    }
+                },
+                {
+                    "trait_id": "need_liberty",
+                    "name": "Liberty",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.09543320674630568"
+                    }
+                },
+                {
+                    "trait_id": "need_love",
+                    "name": "Love",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.044449071295317055"
+                    }
+                },
+                {
+                    "trait_id": "need_practicality",
+                    "name": "Practicality",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.4998686824162221"
+                    }
+                },
+                {
+                    "trait_id": "need_self_expression",
+                    "name": "Self-expression",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.03742716891245779"
+                    }
+                },
+                {
+                    "trait_id": "need_stability",
+                    "name": "Stability",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.8360647925963782"
+                    }
+                },
+                {
+                    "trait_id": "need_structure",
+                    "name": "Structure",
+                    "category": "needs",
+                    "percentile": {
+                        "$numberDouble": "0.5821072724479431"
+                    }
+                }
+            ],
+            "values": [
+                {
+                    "trait_id": "value_conservation",
+                    "name": "Conservation",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.4478153231216642"
+                    }
+                },
+                {
+                    "trait_id": "value_openness_to_change",
+                    "name": "Openness to change",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.08336377137083056"
+                    }
+                },
+                {
+                    "trait_id": "value_hedonism",
+                    "name": "Hedonism",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.2924224041372052"
+                    }
+                },
+                {
+                    "trait_id": "value_self_enhancement",
+                    "name": "Self-enhancement",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.558459727877819"
+                    }
+                },
+                {
+                    "trait_id": "value_self_transcendence",
+                    "name": "Self-transcendence",
+                    "category": "values",
+                    "percentile": {
+                        "$numberDouble": "0.012196143525036118"
+                    }
+                }
+            ],
+            "behavior": [
+                {
+                    "trait_id": "behavior_sunday",
+                    "name": "Sunday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.2"
+                    }
+                },
+                {
+                    "trait_id": "behavior_monday",
+                    "name": "Monday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.12"
+                    }
+                },
+                {
+                    "trait_id": "behavior_tuesday",
+                    "name": "Tuesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.08"
+                    }
+                },
+                {
+                    "trait_id": "behavior_wednesday",
+                    "name": "Wednesday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.1"
+                    }
+                },
+                {
+                    "trait_id": "behavior_thursday",
+                    "name": "Thursday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.13"
+                    }
+                },
+                {
+                    "trait_id": "behavior_friday",
+                    "name": "Friday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.09"
+                    }
+                },
+                {
+                    "trait_id": "behavior_saturday",
+                    "name": "Saturday",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.28"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0000",
+                    "name": "0:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.105"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0100",
+                    "name": "1:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.145"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0200",
+                    "name": "2:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.075"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0300",
+                    "name": "3:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.045"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0400",
+                    "name": "4:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.015"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0500",
+                    "name": "5:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.015"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0600",
+                    "name": "6:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.02"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0700",
+                    "name": "7:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0800",
+                    "name": "8:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_0900",
+                    "name": "9:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1000",
+                    "name": "10:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1100",
+                    "name": "11:00 am",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberInt": "0"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1200",
+                    "name": "12:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.01"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1300",
+                    "name": "1:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.045"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1400",
+                    "name": "2:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.04"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1500",
+                    "name": "3:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.035"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1600",
+                    "name": "4:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.02"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1700",
+                    "name": "5:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.075"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1800",
+                    "name": "6:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                },
+                {
+                    "trait_id": "behavior_1900",
+                    "name": "7:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.03"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2000",
+                    "name": "8:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.07"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2100",
+                    "name": "9:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.09"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2200",
+                    "name": "10:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.045"
+                    }
+                },
+                {
+                    "trait_id": "behavior_2300",
+                    "name": "11:00 pm",
+                    "category": "behavior",
+                    "percentage": {
+                        "$numberDouble": "0.06"
+                    }
+                }
+            ],
+            "warnings": []
+        }
+    }
+]
