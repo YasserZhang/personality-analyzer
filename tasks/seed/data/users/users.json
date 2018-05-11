@@ -12,7 +12,7 @@
     },
     {
         "_id": "60c813f5-df96-4a55-9f24-e5874483f65c",
-        "name": null,
+        "name": "User 1",
         "email": "u1@email.com",
         "password": "$2a$10$tSYubPojim7gIeTIuOu0eeQr47GPpLjTzXedNSc7.lNs0Z8Ix7NhS",
         "is_admin": false,

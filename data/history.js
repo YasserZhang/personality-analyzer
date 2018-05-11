@@ -17,6 +17,9 @@ let exportedMethods = {
             insights: h.insights
         }
 
+        console.log(newHistory);
+        console.log(JSON.stringify(newHistory));
+
         const newHistoryInfo = await historyCollection.insertOne(newHistory)
         const newID = newHistoryInfo.insertedId
         return await this.getHistoryById(newID)
