@@ -51,6 +51,8 @@ David Duke             |  Donald Trump
 Pope Francis            |  Dalai Lama
 :-------------------------:|:-------------------------:
 ![](img/Pontifex.png)  |  ![](img/dalailama.png)
+
+
 The user is able to flag an analysis for further attention. The user is also able to see all of his/her historical searches. 
 
 <img src="img/history.png"
